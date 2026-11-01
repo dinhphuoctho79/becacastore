@@ -137,13 +137,13 @@
 </div>
 <!-- MAIN NAV CATEGORIES (DESKTOP) -->
 <nav class="hidden md:flex border-t border-ocean-border bg-white px-4">
-<div class="max-w-7xl mx-auto w-full flex items-center justify-center gap-8 py-2.5 text-sm font-medium text-brand-heading">
-<button class="category-nav-link text-ocean font-bold hover:text-ocean-light transition-colors" onclick="filterCategory('Tất cả')">Trang chủ</button>
-<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Nam')">Nước hoa Nam</button>
-<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Nữ')">Nước hoa Nữ</button>
-<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Unisex')">Unisex</button>
-<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Chiết')">Nước hoa Chiết</button>
-<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Set quà tặng')">Set quà tặng</button>
+<div class="max-w-7xl mx-auto w-full flex items-center justify-center gap-5 lg:gap-8 py-2.5 text-sm font-medium text-brand-heading overflow-x-auto custom-scroll whitespace-nowrap">
+<button class="category-nav-link shrink-0 whitespace-nowrap text-ocean font-bold hover:text-ocean-light transition-colors" onclick="filterCategory('Tất cả')">Trang chủ</button>
+<button class="category-nav-link shrink-0 whitespace-nowrap hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Nam')">Nước hoa Nam</button>
+<button class="category-nav-link shrink-0 whitespace-nowrap hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Nữ')">Nước hoa Nữ</button>
+<button class="category-nav-link shrink-0 whitespace-nowrap hover:text-ocean transition-colors" onclick="filterCategory('Unisex')">Unisex</button>
+<button class="category-nav-link shrink-0 whitespace-nowrap hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Chiết')">Nước hoa Chiết</button>
+<button class="category-nav-link shrink-0 whitespace-nowrap hover:text-ocean transition-colors" onclick="filterCategory('Set quà tặng')">Set quà tặng</button>
 </div>
 </nav>
 </header>
@@ -286,10 +286,10 @@
 <span class="text-gray-400 font-medium whitespace-nowrap flex items-center gap-1">
 <i class="w-3 h-3" data-lucide="filter"></i> Mức giá:
             </span>
-<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-ocean/10 text-ocean transition-all" onclick="filterPrice('all')">Mọi mức giá</button>
-<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('under1m')">Dưới 1 triệu</button>
-<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('1m-2m')">1 - 2 triệu</button>
-<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('above2m')">Trên 2 triệu</button>
+<button class="price-chip font-medium whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg bg-ocean/10 text-ocean transition-all" onclick="filterPrice('all')">Mọi mức giá</button>
+<button class="price-chip font-medium whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('under1m')">Dưới 1 triệu</button>
+<button class="price-chip font-medium whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('1m-2m')">1 - 2 triệu</button>
+<button class="price-chip font-medium whitespace-nowrap shrink-0 px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('above2m')">Trên 2 triệu</button>
 </div>
 </div>
 <!-- 6. PRODUCT GRID (2 COLS MOBILE, 4 COLS DESKTOP) -->
@@ -546,7 +546,7 @@
 </li>
 <li class="flex items-center gap-2.5">
 <i class="w-4 h-4 text-sand flex-shrink-0" data-lucide="clock"></i>
-<span id="footerHoursText">Giờ mở cửa: 08:30 - 21:30 hàng ngày</span>
+<span id="footerHoursText">Giờ mở cửa: 08:00 - 21:30 hàng ngày</span>
 </li>
 </ul>
 </div>
@@ -993,7 +993,7 @@
         category: 'Nước hoa Nữ',
         price: 2850000,
         oldPrice: 3150000,
-        badge: '-12%',
+        badge: '-10%',
         notes: 'Quả lý chua đen • Hoa diên vĩ • Kẹo hạt dẻ & Vani',
         stock: 'Còn hàng',
         image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80',
@@ -1061,7 +1061,7 @@
       hotline: '0838989567',
       facebook: 'https://www.facebook.com/share/17tcD3VWrf/',
       address: 'Đường Ngô Đức Kế, Phường Ninh Kiều, TP. Cần Thơ',
-      hours: '08:30 - 21:30 hàng ngày'
+      hours: '08:00 - 21:30 hàng ngày'
     };
 
     let currentCategory = 'Tất cả';
