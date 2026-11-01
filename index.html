@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bé Cá Store - Thiện Hoàng | Nước hoa chính hãng Cần Thơ</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ocean: {
+              DEFAULT: '#0A4A5E',
+              dark: '#073645',
+              light: '#0E9AA7',
+              surface: '#F4FAFB',
+              border: '#DCEFF2',
+            },
+            sand: {
+              DEFAULT: '#D9B36A',
+              hover: '#C29C54',
+              light: '#FDF8EC',
+            },
+            brand: {
+              heading: '#12262E',
+              body: '#5A6B73',
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif"', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #F4FAFB;
+      color: #5A6B73;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Noto Serif', serif;
+      color: #12262E;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #0E9AA7;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased text-brand-body selection:bg-ocean selection:text-white">
+<!-- TOP BAR -->
+<div class="bg-ocean text-white text-xs sm:text-sm py-2 px-4 border-b border-ocean-light/30">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2 text-center sm:text-left">
+<span class="inline-block w-2 h-2 rounded-full bg-sand animate-pulse"></span>
+<span class="font-medium text-slate-100">Miễn phí giao hàng Cần Thơ cho đơn từ 500.000đ | 100% chính hãng</span>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium">
+<a class="hover:text-sand transition-colors flex items-center gap-1.5" href="tel:0838989567">
+<i class="w-3.5 h-3.5 text-sand" data-lucide="phone-call"></i>
+<span>Hotline: <strong class="text-white font-semibold">0838989567</strong></span>
+</a>
+<span class="text-ocean-light/50">|</span>
+<a class="hover:text-sand transition-colors flex items-center gap-1.5" href="https://zalo.me/0838989567" rel="noopener noreferrer" target="_blank">
+<i class="w-3.5 h-3.5 text-sand" data-lucide="message-circle"></i>
+<span>Zalo: <strong>0838989567</strong></span>
+</a>
+<span class="text-ocean-light/50">|</span>
+<a class="hover:text-sand transition-colors flex items-center gap-1" href="https://www.facebook.com/share/17tcD3VWrf/" rel="noopener noreferrer" target="_blank">
+<i class="w-3.5 h-3.5 text-sand" data-lucide="facebook"></i>
+<span>Facebook</span>
+</a>
+</div>
+</div>
+</div>
+<!-- STICKY HEADER -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-ocean-border shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+<!-- LOGO -->
+<a class="flex flex-col group flex-shrink-0" href="javascript:void(0)" onclick="switchView('home')">
+<span class="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-ocean group-hover:text-ocean-light transition-colors">
+          Bé Cá Store
+        </span>
+<span class="text-[11px] sm:text-xs tracking-[0.25em] text-sand uppercase font-bold pl-0.5">
+          Thiện Hoàng
+        </span>
+</a>
+<!-- SEARCH BAR (DESKTOP) -->
+<div class="hidden md:flex flex-1 max-w-md mx-4 relative">
+<input class="w-full bg-ocean-surface border border-ocean-border rounded-full pl-11 pr-4 py-2.5 text-sm text-brand-heading placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-ocean/20 focus:border-ocean transition-all" id="globalSearchInput" oninput="handleSearch(this.value)" placeholder="Tìm theo tên nước hoa, thương hiệu (Chanel, Dior...)" type="text"/>
+<i class="w-4 h-4 text-gray-400 absolute left-4 top-3.5" data-lucide="search"></i>
+</div>
+<!-- NAV & ACTIONS -->
+<div class="flex items-center gap-2 sm:gap-3">
+<!-- Facebook link -->
+<a class="hidden lg:flex items-center gap-1.5 px-3 py-2 rounded-full border border-ocean-border text-xs font-semibold text-ocean hover:bg-ocean hover:text-white transition-all" href="https://www.facebook.com/share/17tcD3VWrf/" rel="noopener noreferrer" target="_blank">
+<i class="w-3.5 h-3.5" data-lucide="facebook"></i>
+<span>Facebook</span>
+</a>
+<!-- Admin / Post Product Button -->
+<button class="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full bg-ocean-surface text-ocean hover:bg-ocean hover:text-white border border-ocean-border text-xs sm:text-sm font-semibold transition-all" onclick="openAdminModal()">
+<i class="w-4 h-4 text-sand" data-lucide="plus-circle"></i>
+<span class="hidden sm:inline">Đăng sản phẩm</span>
+<span class="sm:hidden">Đăng</span>
+</button>
+<!-- Admin Login Status indicator / trigger -->
+<button class="p-2 sm:px-3 sm:py-2 rounded-full text-xs font-semibold flex items-center gap-1.5 text-slate-600 hover:text-ocean transition-colors" id="adminStatusBtn" onclick="toggleAdminPanel()" title="Quản trị viên">
+<i class="w-4 h-4" data-lucide="shield"></i>
+<span class="hidden sm:inline" id="adminStatusText">Admin</span>
+</button>
+<!-- Cart Button -->
+<button class="relative flex items-center justify-center p-2.5 rounded-full bg-ocean text-white hover:bg-ocean-dark transition-transform active:scale-95 shadow-sm" onclick="toggleCart(true)">
+<i class="w-5 h-5" data-lucide="shopping-bag"></i>
+<span class="absolute -top-1 -right-1 bg-sand text-slate-900 font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center shadow" id="cartCountBadge">
+            0
+          </span>
+</button>
+</div>
+</div>
+<!-- MAIN NAV CATEGORIES (DESKTOP) -->
+<nav class="hidden md:flex border-t border-ocean-border bg-white px-4">
+<div class="max-w-7xl mx-auto w-full flex items-center justify-center gap-8 py-2.5 text-sm font-medium text-brand-heading">
+<button class="category-nav-link text-ocean font-bold hover:text-ocean-light transition-colors" onclick="filterCategory('Tất cả')">Trang chủ</button>
+<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Nam')">Nước hoa Nam</button>
+<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Nữ')">Nước hoa Nữ</button>
+<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Unisex')">Unisex</button>
+<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Nước hoa Chiết')">Nước hoa Chiết</button>
+<button class="category-nav-link hover:text-ocean transition-colors" onclick="filterCategory('Set quà tặng')">Set quà tặng</button>
+</div>
+</nav>
+</header>
+<!-- SEARCH BAR (MOBILE) -->
+<div class="md:hidden px-4 py-3 bg-white border-b border-ocean-border">
+<div class="relative">
+<input class="w-full bg-ocean-surface border border-ocean-border rounded-full pl-10 pr-4 py-2 text-sm text-brand-heading placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-ocean" oninput="handleSearch(this.value)" placeholder="Tìm nước hoa, thương hiệu..." type="text"/>
+<i class="w-4 h-4 text-gray-400 absolute left-3.5 top-2.5" data-lucide="search"></i>
+</div>
+</div>
+<!-- MAIN WRAPPER (SPA SWITCHER) -->
+<main class="flex-grow">
+<!-- ================= VIEW: HOMEPAGE ================= -->
+<div id="viewHome">
+<!-- 3. HERO SECTION -->
+<section class="relative bg-gradient-to-br from-[#0A4A5E] via-[#083E4F] to-[#0E9AA7] text-white py-12 md:py-20 overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs sm:text-sm font-semibold tracking-wide text-sand">
+<i class="w-4 h-4 text-sand" data-lucide="map-pin"></i>
+                Boutique Ninh Kiều, Cần Thơ
+              </div>
+<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-heading">
+                Nước Hoa Chính Hãng Cần Thơ
+              </h1>
+<p class="text-slate-200 text-sm sm:text-base md:text-lg max-w-2xl font-light leading-relaxed">
+                Tuyển chọn hương thơm cao cấp từ Pháp, Ý. Đầy đủ chai nguyên seal và chiết thử 5ml - 10ml chuẩn phòng Lab. Nhắn Zalo tư vấn mùi 1-1 nhanh chóng!
+              </p>
+<div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+<a class="h-12 px-7 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-sm tracking-wide transition-all shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95" href="#productCatalog">
+<span>Khám phá bộ sưu tập</span>
+<i class="w-4 h-4" data-lucide="arrow-down"></i>
+</a>
+<a class="h-12 px-7 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2 backdrop-blur-sm" href="https://zalo.me/0838989567" rel="noopener noreferrer" target="_blank">
+<i class="w-4 h-4 text-sand" data-lucide="message-circle"></i>
+<span>Nhắn Zalo tư vấn 1-1</span>
+</a>
+</div>
+<div class="pt-2 text-xs text-slate-300 flex items-center justify-center lg:justify-start gap-4">
+<span class="flex items-center gap-1.5"><i class="w-4 h-4 text-sand" data-lucide="check-circle"></i> Đền 200% nếu phát hiện giả</span>
+<span class="flex items-center gap-1.5"><i class="w-4 h-4 text-sand" data-lucide="clock"></i> Giao nhanh 2h nội ô</span>
+</div>
+</div>
+<!-- Hero Bottle Image Matching Real Chanel Coco Mademoiselle -->
+<div class="lg:col-span-5 flex justify-center lg:justify-end">
+<div class="relative w-72 sm:w-80 md:w-96 aspect-[3/4] rounded-3xl p-3 bg-gradient-to-b from-white/20 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl group">
+<div class="w-full h-full rounded-2xl overflow-hidden relative bg-white/80 flex items-center justify-center">
+<img alt="Chanel Coco Mademoiselle Eau de Parfum" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" src="assets/coco.jpg"/>
+<div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/60 backdrop-blur-md text-white border border-white/10 text-xs">
+<p class="font-heading font-bold text-sm text-sand">Chanel Coco Mademoiselle</p>
+<p class="text-slate-300 text-[11px]">Bestseller Nữ • Sang trọng &amp; Quyến rũ</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. TRUST BAR -->
+<section class="bg-white border-y border-ocean-border py-6 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-ocean-surface/60 border border-ocean-border/60">
+<div class="w-10 h-10 rounded-full bg-ocean/10 text-ocean flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-ocean" data-lucide="shield-check"></i>
+</div>
+<div>
+<h4 class="font-bold text-xs sm:text-sm text-brand-heading">100% Chính Hãng</h4>
+<p class="text-[11px] sm:text-xs text-brand-body">Đền 200% nếu phát hiện giả</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-ocean-surface/60 border border-ocean-border/60">
+<div class="w-10 h-10 rounded-full bg-ocean/10 text-ocean flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-ocean" data-lucide="zap"></i>
+</div>
+<div>
+<h4 class="font-bold text-xs sm:text-sm text-brand-heading">Giao nhanh Cần Thơ 2h</h4>
+<p class="text-[11px] sm:text-xs text-brand-body">Ninh Kiều &amp; Cái Răng</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-ocean-surface/60 border border-ocean-border/60">
+<div class="w-10 h-10 rounded-full bg-ocean/10 text-ocean flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-ocean" data-lucide="refresh-cw"></i>
+</div>
+<div>
+<h4 class="font-bold text-xs sm:text-sm text-brand-heading">Đổi trả 7 ngày</h4>
+<p class="text-[11px] sm:text-xs text-brand-body">An tâm tuyệt đối</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-ocean-surface/60 border border-ocean-border/60">
+<div class="w-10 h-10 rounded-full bg-ocean/10 text-ocean flex items-center justify-center flex-shrink-0">
+<i class="w-5 h-5 text-ocean" data-lucide="headphones"></i>
+</div>
+<div>
+<h4 class="font-bold text-xs sm:text-sm text-brand-heading">Tư vấn mùi 1-1</h4>
+<p class="text-[11px] sm:text-xs text-brand-body">Zalo 0838989567</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. CATEGORIES & FILTER CHIPS -->
+<section class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="productCatalog">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+<div>
+<span class="text-xs uppercase font-bold tracking-widest text-ocean-light">Tuyển chọn cao cấp</span>
+<h2 class="text-2xl sm:text-3xl font-bold font-heading text-brand-heading mt-1">Danh mục sản phẩm</h2>
+</div>
+<div class="text-sm font-medium text-brand-body" id="productCountDisplay">
+            Đang hiển thị: <span class="font-bold text-ocean" id="visibleCount">8</span> sản phẩm
+          </div>
+</div>
+<!-- Filter Chips Large & Price filter -->
+<div class="flex flex-col gap-4 pb-6 border-b border-ocean-border">
+<!-- Categories -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 custom-scroll" id="categoryChips">
+<button class="chip-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-ocean text-white shadow-sm" onclick="filterCategory('Tất cả')">
+              Tất cả
+            </button>
+<button class="chip-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-brand-body border border-ocean-border hover:border-ocean hover:text-ocean" onclick="filterCategory('Nước hoa Nam')">
+              Nước hoa Nam
+            </button>
+<button class="chip-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-brand-body border border-ocean-border hover:border-ocean hover:text-ocean" onclick="filterCategory('Nước hoa Nữ')">
+              Nước hoa Nữ
+            </button>
+<button class="chip-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-brand-body border border-ocean-border hover:border-ocean hover:text-ocean" onclick="filterCategory('Unisex')">
+              Unisex
+            </button>
+<button class="chip-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-brand-body border border-ocean-border hover:border-ocean hover:text-ocean" onclick="filterCategory('Nước hoa Chiết')">
+              Nước hoa Chiết
+            </button>
+<button class="chip-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-brand-body border border-ocean-border hover:border-ocean hover:text-ocean" onclick="filterCategory('Set quà tặng')">
+              Set quà tặng
+            </button>
+</div>
+<!-- Price Filters -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+<span class="text-gray-400 font-medium whitespace-nowrap flex items-center gap-1">
+<i class="w-3 h-3" data-lucide="filter"></i> Mức giá:
+            </span>
+<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-ocean/10 text-ocean transition-all" onclick="filterPrice('all')">Mọi mức giá</button>
+<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('under1m')">Dưới 1 triệu</button>
+<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('1m-2m')">1 - 2 triệu</button>
+<button class="price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all" onclick="filterPrice('above2m')">Trên 2 triệu</button>
+</div>
+</div>
+<!-- 6. PRODUCT GRID (2 COLS MOBILE, 4 COLS DESKTOP) -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-6" id="productGrid">
+<!-- Rendered dynamically by JavaScript -->
+</div>
+</section>
+</div>
+<!-- ================= VIEW: PRODUCT DETAIL ================= -->
+<div class="hidden py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="viewProductDetail">
+<!-- BREADCRUMB -->
+<nav class="flex items-center gap-2 text-xs text-brand-body mb-6 flex-wrap">
+<a class="hover:text-ocean transition-colors flex items-center gap-1" href="javascript:void(0)" onclick="switchView('home')">
+<i class="w-3.5 h-3.5" data-lucide="home"></i> Trang chủ
+        </a>
+<i class="w-3.5 h-3.5 text-gray-300" data-lucide="chevron-right"></i>
+<span class="hover:text-ocean cursor-pointer" id="detailBreadcrumbCat" onclick="switchView('home')">Nước hoa Nữ</span>
+<i class="w-3.5 h-3.5 text-gray-300" data-lucide="chevron-right"></i>
+<span class="font-medium text-brand-heading" id="detailBreadcrumbBrand">Chanel</span>
+<i class="w-3.5 h-3.5 text-gray-300" data-lucide="chevron-right"></i>
+<span class="text-ocean font-semibold line-clamp-1" id="detailBreadcrumbName">Chanel Coco Mademoiselle</span>
+</nav>
+<!-- DETAIL MAIN -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-8 border border-ocean-border shadow-sm">
+<!-- LEFT: IMAGES & TRUST BADGES -->
+<div class="lg:col-span-6 space-y-4">
+<div class="aspect-square w-full rounded-2xl overflow-hidden bg-ocean-surface border border-ocean-border flex items-center justify-center relative">
+<img alt="Perfume Detail" class="w-full h-full object-cover" id="detailMainImg" src=""/>
+<span class="absolute top-4 left-4 bg-sand text-brand-heading font-bold text-xs px-3 py-1 rounded-full shadow" id="detailBadge">HOT</span>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-3 gap-3" id="detailThumbs">
+<!-- Filled via JS -->
+</div>
+<!-- 4 TRUST BADGES -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-ocean-surface/70 border border-ocean-border text-xs">
+<i class="w-4 h-4 text-ocean flex-shrink-0" data-lucide="check-circle-2"></i>
+<span class="font-semibold text-brand-heading">100% Chính Hãng — Check trọn đời</span>
+</div>
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-ocean-surface/70 border border-ocean-border text-xs">
+<i class="w-4 h-4 text-ocean flex-shrink-0" data-lucide="award"></i>
+<span class="font-semibold text-brand-heading">Đền 200% Giá Trị Nếu phát hiện hàng giả</span>
+</div>
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-ocean-surface/70 border border-ocean-border text-xs">
+<i class="w-4 h-4 text-ocean flex-shrink-0" data-lucide="truck"></i>
+<span class="font-semibold text-brand-heading">Freeship Cần Thơ cho đơn từ 500.000đ</span>
+</div>
+<div class="flex items-center gap-2.5 p-3 rounded-xl bg-ocean-surface/70 border border-ocean-border text-xs">
+<i class="w-4 h-4 text-ocean flex-shrink-0" data-lucide="store"></i>
+<span class="font-semibold text-brand-heading">Thử Mùi Tại Shop - Boutique Ninh Kiều</span>
+</div>
+</div>
+</div>
+<!-- RIGHT: PRODUCT INFO & PURCHASE -->
+<div class="lg:col-span-6 space-y-6">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase font-bold tracking-widest text-ocean-light" id="detailBrand">CHANEL</span>
+<span class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> <span id="detailStock">Còn 8 chai sẵn tại shop</span>
+</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-bold font-heading text-brand-heading mt-1 leading-snug" id="detailName">
+              Chanel Coco Mademoiselle Eau de Parfum
+            </h1>
+<div class="flex items-center gap-3 mt-3 text-xs sm:text-sm">
+<div class="flex items-center text-amber-400">
+<i class="w-4 h-4 fill-amber-400" data-lucide="star"></i>
+<span class="font-bold text-brand-heading ml-1.5">5.0</span>
+<span class="text-brand-body ml-1">(216 đánh giá)</span>
+</div>
+<span class="text-gray-300">|</span>
+<span class="text-brand-body">Đã bán <strong class="text-brand-heading">520+ chai</strong> tại Cần Thơ &amp; Miền Tây</span>
+</div>
+</div>
+<!-- Price & Discount -->
+<div class="p-4 rounded-2xl bg-ocean-surface border border-ocean-border flex items-baseline gap-3">
+<span class="text-2xl sm:text-3xl font-bold text-ocean font-heading" id="detailPrice">3.850.000đ</span>
+<span class="text-sm sm:text-base text-gray-400 line-through" id="detailOldPrice">4.250.000đ</span>
+<span class="text-xs font-bold text-rose-600 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded-full">-10% Tiết kiệm 400.000đ</span>
+</div>
+<div class="flex items-center gap-2 p-3 rounded-xl bg-sand/10 border border-sand/30 text-xs text-brand-heading font-medium">
+<i class="w-4 h-4 text-sand flex-shrink-0" data-lucide="gift"></i>
+<span>Tặng kèm 01 ống vial mẫu thử hương hoa cỏ cao cấp</span>
+</div>
+<!-- Size selector pills -->
+<div>
+<label class="block text-xs font-bold text-brand-heading uppercase tracking-wider mb-2">Chọn dung tích:</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="detailSizeGroup">
+<button class="size-pill py-2.5 px-3 rounded-xl border border-ocean-border text-xs text-center font-medium hover:border-ocean transition-all" onclick="selectDetailSize(this, '5ml Chiết', 190000)">
+<div class="font-bold">5ml Chiết</div>
+<div class="text-[11px] text-gray-500">190.000đ</div>
+</button>
+<button class="size-pill py-2.5 px-3 rounded-xl border border-ocean-border text-xs text-center font-medium hover:border-ocean transition-all" onclick="selectDetailSize(this, '10ml Chiết', 380000)">
+<div class="font-bold">10ml Chiết</div>
+<div class="text-[11px] text-gray-500">380.000đ</div>
+</button>
+<button class="size-pill py-2.5 px-3 rounded-xl border border-ocean-border text-xs text-center font-medium hover:border-ocean transition-all" onclick="selectDetailSize(this, '50ml Fullbox', 2950000)">
+<div class="font-bold">50ml Fullbox</div>
+<div class="text-[11px] text-gray-500">2.950.000đ</div>
+</button>
+<button class="size-pill active py-2.5 px-3 rounded-xl border-2 border-ocean bg-ocean/5 text-xs text-center font-medium transition-all" onclick="selectDetailSize(this, '100ml Fullbox', 3850000)">
+<div class="font-bold text-ocean">100ml Fullbox</div>
+<div class="text-[11px] text-ocean">3.850.000đ</div>
+</button>
+</div>
+</div>
+<!-- Quantity selector -->
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold text-brand-heading uppercase tracking-wider">Số lượng:</span>
+<div class="flex items-center border border-ocean-border rounded-full bg-ocean-surface">
+<button class="w-10 h-10 flex items-center justify-center text-brand-heading hover:text-ocean transition-colors" onclick="changeDetailQty(-1)">
+<i class="w-4 h-4" data-lucide="minus"></i>
+</button>
+<span class="w-10 text-center font-bold text-sm text-brand-heading" id="detailQty">1</span>
+<button class="w-10 h-10 flex items-center justify-center text-brand-heading hover:text-ocean transition-colors" onclick="changeDetailQty(1)">
+<i class="w-4 h-4" data-lucide="plus"></i>
+</button>
+</div>
+</div>
+<!-- CTAs -->
+<div class="space-y-3 pt-2">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<button class="h-12 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-sm tracking-wide transition-all shadow-md flex items-center justify-center gap-2 active:scale-95" onclick="buyNowFromDetail()">
+<i class="w-4 h-4" data-lucide="zap"></i> Mua ngay
+              </button>
+<button class="h-12 rounded-full border-2 border-ocean text-ocean hover:bg-ocean hover:text-white font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-2 active:scale-95" onclick="addToCartFromDetail()">
+<i class="w-4 h-4" data-lucide="shopping-bag"></i> Thêm vào giỏ
+              </button>
+</div>
+<a class="w-full h-12 rounded-full bg-ocean text-white hover:bg-ocean-dark font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm" href="https://zalo.me/0838989567" rel="noopener noreferrer" target="_blank">
+<i class="w-4 h-4 text-sand" data-lucide="message-circle"></i>
+<span>Tư vấn mùi hương qua Zalo: 0838989567</span>
+</a>
+</div>
+<!-- Quick delivery perks -->
+<div class="pt-4 border-t border-ocean-border space-y-2 text-xs text-brand-body">
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-ocean" data-lucide="truck"></i>
+<span>Giao hàng hỏa tốc Cần Thơ 2 giờ (Ninh Kiều, Cái Răng, Bình Thủy)</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-ocean" data-lucide="gift"></i>
+<span>Gói quà miễn phí &amp; viết thiệp chúc mừng theo yêu cầu</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-ocean" data-lucide="credit-card"></i>
+<span>Thanh toán COD / Chuyển khoản Vietcombank / VietQR / MoMo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SCENT PYRAMID & METERS -->
+<div class="mt-8 bg-white rounded-3xl p-6 sm:p-8 border border-ocean-border shadow-sm space-y-8">
+<div>
+<h3 class="text-xl sm:text-2xl font-bold font-heading text-brand-heading mb-2">Kim Tự Tháp Mùi Hương (Scent Pyramid)</h3>
+<p class="text-xs sm:text-sm text-brand-body">Các tầng hương chuyển dịch tinh tế theo thời gian bám trên da.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Top Notes -->
+<div class="p-5 rounded-2xl bg-ocean-surface border border-ocean-border relative">
+<span class="text-[10px] uppercase font-bold tracking-widest text-ocean-light">0 - 15 Phút đầu</span>
+<h4 class="font-heading font-bold text-base text-brand-heading mt-1 mb-2">Hương Đầu (Top Notes)</h4>
+<p class="text-xs sm:text-sm text-brand-body leading-relaxed" id="pyramidTop">Cam Bergamot tươi mát, Cam đỏ Calabria, Tinh dầu hoa cam chanh bừng sáng năng lượng.</p>
+</div>
+<!-- Heart Notes -->
+<div class="p-5 rounded-2xl bg-ocean-surface border border-ocean-border relative">
+<span class="text-[10px] uppercase font-bold tracking-widest text-ocean-light">15 Phút - 3 Giờ</span>
+<h4 class="font-heading font-bold text-base text-brand-heading mt-1 mb-2">Hương Giữa (Heart Notes)</h4>
+<p class="text-xs sm:text-sm text-brand-body leading-relaxed" id="pyramidHeart">Hoa hồng Thổ Nhĩ Kỳ kiêu kỳ, Hoa nhài Grasse ngào ngạt, Ngọc lan tây quyến rũ.</p>
+</div>
+<!-- Base Notes -->
+<div class="p-5 rounded-2xl bg-ocean-surface border border-ocean-border relative">
+<span class="text-[10px] uppercase font-bold tracking-widest text-ocean-light">3 Giờ - 12 Giờ</span>
+<h4 class="font-heading font-bold text-base text-brand-heading mt-1 mb-2">Hương Cuối (Base Notes)</h4>
+<p class="text-xs sm:text-sm text-brand-body leading-relaxed" id="pyramidBase">Hoắc hương sang trọng, Vani Madagascar ngọt ngào, Xạ hương trắng lưu luyến êm ái.</p>
+</div>
+</div>
+<!-- Longevity & Sillage meters -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-ocean-border">
+<div>
+<div class="flex justify-between text-xs font-semibold mb-1.5">
+<span class="text-brand-heading">Độ lưu hương (Longevity):</span>
+<span class="text-ocean">Lâu (7 - 12 giờ)</span>
+</div>
+<div class="w-full bg-ocean-surface rounded-full h-2.5 overflow-hidden border border-ocean-border">
+<div class="bg-ocean h-2.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-semibold mb-1.5">
+<span class="text-brand-heading">Độ tỏa hương (Sillage):</span>
+<span class="text-ocean">Xa (Bán kính 1 - 2 mét)</span>
+</div>
+<div class="w-full bg-ocean-surface rounded-full h-2.5 overflow-hidden border border-ocean-border">
+<div class="bg-sand h-2.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- RELATED PRODUCTS (4 CARDS) -->
+<div class="mt-12">
+<h3 class="text-xl sm:text-2xl font-bold font-heading text-brand-heading mb-6">Sản phẩm cùng phong cách</h3>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="relatedGrid">
+<!-- Filled via JS -->
+</div>
+</div>
+</div>
+</main>
+<!-- 7. FOOTER -->
+<footer class="bg-ocean text-white mt-16 pt-12 pb-24 md:pb-12 border-t border-ocean-light/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-white/10">
+<!-- Left: Brand info & Guarantee -->
+<div class="space-y-4">
+<div>
+<span class="font-heading text-2xl font-bold tracking-tight text-white block">
+              Bé Cá Store
+            </span>
+<span class="text-xs tracking-[0.25em] text-sand uppercase font-bold">
+              Thiện Hoàng
+            </span>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Hương thơm chính hãng tuyển chọn tại Tây Đô Cần Thơ. Đem đến cho quý khách trải nghiệm mùi hương chuẩn mực và chuẩn Pháp với sự tận tâm, thân thiện của người miền Tây.
+          </p>
+<div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-xs text-sand font-medium flex items-center gap-2">
+<i class="w-4 h-4 flex-shrink-0 text-sand" data-lucide="shield-check"></i>
+<span>Cam kết 100% chính hãng - Đền 200% nếu phát hiện giả</span>
+</div>
+</div>
+<!-- Middle: Address & Contact -->
+<div class="space-y-3">
+<h4 class="font-heading font-bold text-base text-white border-l-2 border-sand pl-3">
+            Địa chỉ &amp; Liên hệ
+          </h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+<li class="flex items-start gap-2.5">
+<i class="w-4 h-4 text-sand flex-shrink-0 mt-0.5" data-lucide="map-pin"></i>
+<span id="footerAddressText">Đường Ngô Đức Kế, Phường Ninh Kiều, TP. Cần Thơ</span>
+</li>
+<li class="flex items-center gap-2.5">
+<i class="w-4 h-4 text-sand flex-shrink-0" data-lucide="phone"></i>
+<span>Hotline: <a class="hover:text-sand font-bold text-white" href="tel:0838989567" id="footerHotlineText">0838989567</a></span>
+</li>
+<li class="flex items-center gap-2.5">
+<i class="w-4 h-4 text-sand flex-shrink-0" data-lucide="message-circle"></i>
+<span>Zalo: <a class="hover:text-sand font-bold text-white" href="https://zalo.me/0838989567" id="footerZaloText" rel="noopener noreferrer" target="_blank">0838989567</a></span>
+</li>
+<li class="flex items-center gap-2.5">
+<i class="w-4 h-4 text-sand flex-shrink-0" data-lucide="facebook"></i>
+<span>Facebook: <a class="hover:text-sand text-slate-200" href="https://www.facebook.com/share/17tcD3VWrf/" rel="noopener noreferrer" target="_blank">Bé Cá Store</a></span>
+</li>
+<li class="flex items-center gap-2.5">
+<i class="w-4 h-4 text-sand flex-shrink-0" data-lucide="clock"></i>
+<span id="footerHoursText">Giờ mở cửa: 08:30 - 21:30 hàng ngày</span>
+</li>
+</ul>
+</div>
+<!-- Right: Payment & Delivery -->
+<div class="space-y-3">
+<h4 class="font-heading font-bold text-base text-white border-l-2 border-sand pl-3">
+            Thanh toán &amp; Giao nhận
+          </h4>
+<p class="text-xs sm:text-sm text-slate-300">
+            Giao hàng nội ô Cần Thơ trong 2h. Đóng gói chắc chắn, bảo mật thông tin đơn hàng.
+          </p>
+<div class="space-y-2 pt-1 text-xs text-slate-200">
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-sand" data-lucide="package-check"></i>
+<span>COD Toàn quốc kiểm tra hàng trước thanh toán</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-sand" data-lucide="banknote"></i>
+<span>Chuyển khoản ngân hàng &amp; VietQR</span>
+</div>
+<div class="flex items-center gap-2">
+<i class="w-4 h-4 text-sand" data-lucide="wallet"></i>
+<span>Thanh toán ví điện tử MoMo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Copyright -->
+<div class="pt-6 text-center text-xs text-slate-400">
+<p>© 2025 Bé Cá Store - Thiện Hoàng. Tất cả quyền được bảo lưu. Cần Thơ, Việt Nam.</p>
+</div>
+</div>
+</footer>
+<!-- 8. FLOATING BUTTONS (BOTTOM-RIGHT) -->
+<div class="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-40 flex flex-col gap-2.5 items-end">
+<!-- Facebook Float -->
+<a class="w-12 h-12 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform" href="https://www.facebook.com/share/17tcD3VWrf/" rel="noopener noreferrer" target="_blank" title="Facebook Bé Cá Store">
+<i class="w-6 h-6" data-lucide="facebook"></i>
+</a>
+<!-- Hotline Float -->
+<a class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform" href="tel:0838989567" title="Gọi Hotline 0838989567">
+<i class="w-6 h-6" data-lucide="phone-call"></i>
+</a>
+<!-- Zalo Float -->
+<a class="w-12 h-12 rounded-full bg-[#0068FF] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform relative" href="https://zalo.me/0838989567" rel="noopener noreferrer" target="_blank" title="Nhắn Zalo 0838989567">
+<span class="font-bold text-xs uppercase">Zalo</span>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white animate-ping"></span>
+</a>
+</div>
+<!-- STICKY BOTTOM BAR ON MOBILE -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-ocean-border p-3 grid grid-cols-2 gap-3 shadow-lg">
+<a class="h-11 rounded-full border-2 border-ocean text-ocean font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95" href="https://zalo.me/0838989567" rel="noopener noreferrer" target="_blank">
+<i class="w-4 h-4 text-ocean" data-lucide="message-circle"></i>
+<span>Nhắn Zalo</span>
+</a>
+<button class="h-11 rounded-full bg-sand text-brand-heading font-bold text-xs flex items-center justify-center gap-1.5 shadow-md active:scale-95" onclick="mobileQuickBuy()">
+<i class="w-4 h-4" data-lucide="zap"></i>
+<span>Mua ngay</span>
+</button>
+</div>
+<!-- ================= CART DRAWER ================= -->
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden transition-opacity" id="cartDrawerBackdrop" onclick="toggleCart(false)"></div>
+<div class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="cartDrawer">
+<!-- Drawer Header -->
+<div class="p-5 border-b border-ocean-border flex items-center justify-between bg-ocean text-white">
+<div class="flex items-center gap-2">
+<i class="w-5 h-5 text-sand" data-lucide="shopping-bag"></i>
+<h3 class="font-heading font-bold text-lg">Giỏ Hàng Của Bạn</h3>
+</div>
+<button class="p-1 rounded-full hover:bg-white/10 text-white transition-colors" onclick="toggleCart(false)">
+<i class="w-5 h-5" data-lucide="x"></i>
+</button>
+</div>
+<!-- Drawer Body (Items) -->
+<div class="flex-1 overflow-y-auto p-5 space-y-4 custom-scroll" id="cartItemsList">
+<!-- Injected by JS -->
+</div>
+<!-- Drawer Footer -->
+<div class="p-5 border-t border-ocean-border bg-ocean-surface space-y-3">
+<div class="flex items-center justify-between text-sm">
+<span class="text-brand-body">Tổng tiền hàng:</span>
+<span class="font-heading font-bold text-xl text-ocean" id="cartDrawerTotal">0đ</span>
+</div>
+<p class="text-[11px] text-gray-500">Miễn phí giao hàng nội ô Cần Thơ cho đơn từ 500.000đ</p>
+<div class="space-y-2 pt-2">
+<button class="w-full h-12 rounded-full bg-[#0068FF] text-white hover:bg-blue-700 font-bold text-sm flex items-center justify-center gap-2 shadow-md transition-all" onclick="orderViaZalo()">
+<i class="w-4 h-4" data-lucide="message-circle"></i>
+<span>Đặt hàng qua Zalo (Gửi giỏ hàng)</span>
+</button>
+<button class="w-full h-12 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-sm flex items-center justify-center gap-2 shadow transition-all" onclick="checkoutDirectly()">
+<i class="w-4 h-4" data-lucide="check-circle"></i>
+<span>Mua ngay (Hoàn tất thanh toán)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ================= ADMIN LOGIN MODAL ================= -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="adminLoginModal">
+<div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full border border-ocean-border shadow-2xl relative">
+<button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeAdminLoginModal()">
+<i class="w-5 h-5" data-lucide="x"></i>
+</button>
+<div class="text-center space-y-2 mb-6">
+<div class="w-12 h-12 rounded-full bg-ocean/10 text-ocean flex items-center justify-center mx-auto">
+<i class="w-6 h-6 text-ocean" data-lucide="lock"></i>
+</div>
+<h3 class="font-heading font-bold text-xl text-brand-heading">Đăng Nhập Quản Trị</h3>
+<p class="text-xs text-brand-body">Dành riêng cho chủ shop Bé Cá Store - Thiện Hoàng. Lần đầu mở Admin, mật khẩu bạn nhập sẽ trở thành mật khẩu quản trị.</p>
+</div>
+<form class="space-y-4" onsubmit="handleAdminLogin(event)">
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1.5">Mật khẩu Admin:</label>
+<input class="w-full px-4 py-2.5 rounded-xl border border-ocean-border text-sm focus:outline-none focus:ring-2 focus:ring-ocean/20 focus:border-ocean" id="adminPasswordField" placeholder="Nhập mật khẩu quản trị..." required="" type="password"/>
+<p class="text-rose-600 text-xs mt-1.5 hidden" id="adminLoginError">Mật khẩu không chính xác. Vui lòng thử lại!</p>
+</div>
+<button class="w-full h-11 rounded-full bg-ocean hover:bg-ocean-dark text-white font-bold text-sm transition-all shadow" type="submit">
+          Xác nhận đăng nhập
+        </button>
+</form>
+</div>
+</div>
+<!-- ================= ADMIN PANEL DRAWER / OVERLAY ================= -->
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden" id="adminPanelDrawerBackdrop" onclick="closeAdminPanel()"></div>
+<div class="fixed inset-y-0 right-0 w-full max-w-4xl bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="adminPanelDrawer">
+<!-- Admin Header -->
+<div class="p-4 sm:p-6 bg-ocean text-white flex items-center justify-between border-b border-ocean-light/30">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-sand text-brand-heading flex items-center justify-center font-bold text-sm">
+          TH
+        </div>
+<div>
+<h3 class="font-heading font-bold text-lg leading-tight">Admin Quản Trị - Bé Cá Store</h3>
+<p class="text-xs text-ocean-surface/80">Quản trị danh mục, đơn Zalo &amp; cài đặt cửa hàng</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-rose-600 text-xs font-semibold text-white transition-colors flex items-center gap-1" onclick="handleAdminLogout()">
+<i class="w-3.5 h-3.5" data-lucide="log-out"></i>
+<span>Đăng xuất</span>
+</button>
+<button class="p-1.5 rounded-full hover:bg-white/10 text-white transition-colors" onclick="closeAdminPanel()">
+<i class="w-5 h-5" data-lucide="x"></i>
+</button>
+</div>
+</div>
+<!-- Admin Tabs -->
+<div class="flex border-b border-ocean-border bg-ocean-surface px-4 sm:px-6 overflow-x-auto text-xs sm:text-sm font-semibold">
+<button class="admin-tab active py-3 px-4 border-b-2 border-ocean text-ocean" id="tabBtn-overview" onclick="switchAdminTab('overview')">1. Tổng quan</button>
+<button class="admin-tab py-3 px-4 border-b-2 border-transparent text-brand-body hover:text-ocean" id="tabBtn-products" onclick="switchAdminTab('products')">2. Sản phẩm</button>
+<button class="admin-tab py-3 px-4 border-b-2 border-transparent text-brand-body hover:text-ocean" id="tabBtn-orders" onclick="switchAdminTab('orders')">3. Đơn hàng qua Zalo</button>
+<button class="admin-tab py-3 px-4 border-b-2 border-transparent text-brand-body hover:text-ocean" id="tabBtn-settings" onclick="switchAdminTab('settings')">4. Cài đặt shop</button>
+</div>
+<!-- Admin Content Area -->
+<div class="flex-1 overflow-y-auto p-4 sm:p-6 custom-scroll">
+<!-- TAB 1: OVERVIEW -->
+<div class="space-y-6" id="adminTab-overview">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-4 rounded-2xl bg-ocean-surface border border-ocean-border">
+<span class="text-xs text-gray-500 font-medium">Tổng sản phẩm</span>
+<div class="text-2xl font-bold font-heading text-ocean mt-1" id="statTotalProducts">8</div>
+</div>
+<div class="p-4 rounded-2xl bg-ocean-surface border border-ocean-border">
+<span class="text-xs text-gray-500 font-medium">Còn hàng</span>
+<div class="text-2xl font-bold font-heading text-emerald-600 mt-1" id="statInStock">8</div>
+</div>
+<div class="p-4 rounded-2xl bg-ocean-surface border border-ocean-border">
+<span class="text-xs text-gray-500 font-medium">Hết hàng</span>
+<div class="text-2xl font-bold font-heading text-rose-500 mt-1" id="statOutOfStock">0</div>
+</div>
+<div class="p-4 rounded-2xl bg-ocean-surface border border-ocean-border">
+<span class="text-xs text-gray-500 font-medium">Tổng giá trị kho</span>
+<div class="text-xl sm:text-2xl font-bold font-heading text-sand mt-1" id="statTotalValue">25.349.000đ</div>
+</div>
+</div>
+<div class="p-5 rounded-2xl bg-white border border-ocean-border">
+<h4 class="font-heading font-bold text-sm text-brand-heading mb-3">Lưu ý quản trị</h4>
+<p class="text-xs text-brand-body leading-relaxed">
+            Mọi thao tác Thêm, Sửa, Xóa sản phẩm và cập nhật Cài đặt được lưu trực tiếp vào <strong>localStorage</strong> trình duyệt, dữ liệu vẫn giữ nguyên vẹn khi tải lại trang. Các đơn hàng khách bấm "Đặt hàng qua Zalo" cũng sẽ tự động lưu vào danh sách đơn hàng.
+          </p>
+</div>
+</div>
+<!-- TAB 2: PRODUCTS TABLE -->
+<div class="hidden space-y-4" id="adminTab-products">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+<button class="h-10 px-4 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-xs flex items-center justify-center gap-1.5 shadow" onclick="openProductForm()">
+<i class="w-4 h-4" data-lucide="plus"></i> Đăng sản phẩm mới
+          </button>
+<div class="flex items-center gap-2">
+<input class="px-3 py-1.5 rounded-xl border border-ocean-border text-xs focus:outline-none focus:border-ocean" oninput="handleAdminProductSearch(this.value)" placeholder="Lọc tên sản phẩm..." type="text"/>
+</div>
+</div>
+<!-- Table -->
+<div class="border border-ocean-border rounded-2xl overflow-hidden overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead class="bg-ocean-surface text-brand-heading font-bold border-b border-ocean-border">
+<tr>
+<th class="p-3">Ảnh</th>
+<th class="p-3">Tên &amp; Thương hiệu</th>
+<th class="p-3">Danh mục</th>
+<th class="p-3">Giá bán</th>
+<th class="p-3">Trạng thái</th>
+<th class="p-3 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-ocean-border" id="adminProductsTableBody">
+<!-- Rendered via JS -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- TAB 3: ZALO ORDERS -->
+<div class="hidden space-y-4" id="adminTab-orders">
+<div class="flex items-center justify-between">
+<h4 class="font-heading font-bold text-sm text-brand-heading">Danh sách đơn hàng Zalo</h4>
+<span class="text-xs text-gray-500">Tự động ghi nhận khi khách gửi đơn</span>
+</div>
+<div class="border border-ocean-border rounded-2xl overflow-hidden overflow-x-auto">
+<table class="w-full text-left text-xs">
+<thead class="bg-ocean-surface text-brand-heading font-bold border-b border-ocean-border">
+<tr>
+<th class="p-3">Mã &amp; Ngày</th>
+<th class="p-3">Khách hàng</th>
+<th class="p-3">Sản phẩm</th>
+<th class="p-3">Tổng tiền</th>
+<th class="p-3">Trạng thái</th>
+<th class="p-3 text-right">Zalo chat</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-ocean-border" id="adminOrdersTableBody">
+<!-- Rendered via JS -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- TAB 4: SHOP SETTINGS -->
+<div class="hidden space-y-6 max-w-xl" id="adminTab-settings">
+<form class="space-y-4" onsubmit="handleSaveShopSettings(event)">
+<h4 class="font-heading font-bold text-sm text-brand-heading pb-1 border-b border-ocean-border">Thông tin cửa hàng</h4>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Tên cửa hàng:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingShopName" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Subtitle:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingShopSubtitle" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Hotline / Zalo:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingHotline" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Link Facebook:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingFacebook" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Địa chỉ cửa hàng:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingAddress" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Giờ mở cửa:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingHours" type="text"/>
+</div>
+<button class="h-11 px-6 rounded-full bg-ocean hover:bg-ocean-dark text-white font-bold text-xs transition-all shadow" type="submit">
+            Lưu cài đặt cửa hàng
+          </button>
+</form>
+<!-- Change Admin Password Form -->
+<form class="space-y-4 pt-4 border-t border-ocean-border" onsubmit="handleChangeAdminPassword(event)">
+<h4 class="font-heading font-bold text-sm text-brand-heading pb-1 border-b border-ocean-border">Đổi mật khẩu Admin</h4>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Mật khẩu hiện tại:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="currentAdminPass" placeholder="Nhập mật khẩu hiện tại..." required="" type="password"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Mật khẩu mới:</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="newAdminPass" placeholder="Nhập mật khẩu mới..." required="" type="password"/>
+</div>
+<button class="h-11 px-6 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-xs transition-all shadow" type="submit">
+            Cập nhật mật khẩu mới
+          </button>
+</form>
+</div>
+</div>
+</div>
+<!-- ================= ADD / EDIT PRODUCT FORM MODAL ================= -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="productFormModal">
+<div class="bg-white rounded-3xl p-6 max-w-xl w-full border border-ocean-border shadow-2xl max-h-[90vh] overflow-y-auto custom-scroll relative">
+<button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeProductFormModal()">
+<i class="w-5 h-5" data-lucide="x"></i>
+</button>
+<h3 class="font-heading font-bold text-lg text-brand-heading mb-4" id="productFormTitle">Đăng Sản Phẩm Mới</h3>
+<form class="space-y-4" onsubmit="handleSaveProductForm(event)">
+<input id="formProductId" type="hidden"/>
+<!-- Image Upload & URL input -->
+<div class="space-y-2">
+<label class="block text-xs font-bold text-brand-heading">Hình ảnh sản phẩm *</label>
+<div class="flex items-center gap-3">
+<div class="w-20 h-20 rounded-xl bg-ocean-surface border border-ocean-border overflow-hidden flex items-center justify-center flex-shrink-0">
+<img alt="Preview" class="w-full h-full object-cover" id="formImgPreview" src="assets/coco.jpg"/>
+</div>
+<div class="flex-1 space-y-1.5">
+<input accept="image/*" class="text-xs text-gray-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-ocean file:text-white hover:file:bg-ocean-dark" id="formFileInput" onchange="handleImageFileUpload(event)" type="file"/>
+<input class="w-full px-3 py-1.5 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formImgUrl" oninput="previewUrlImage(this.value)" placeholder="Hoặc dán URL ảnh trực tiếp" type="text"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Tên sản phẩm *</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formName" placeholder="vd: Chanel Coco Mademoiselle" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Thương hiệu *</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formBrand" placeholder="vd: CHANEL" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Giá bán (số nguyên VND) *</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formPrice" placeholder="vd: 3850000" required="" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Giá gốc (gạch ngang)</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formOldPrice" placeholder="vd: 4250000" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Danh mục *</label>
+<select class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formCategory">
+<option value="Nước hoa Nam">Nước hoa Nam</option>
+<option value="Nước hoa Nữ">Nước hoa Nữ</option>
+<option value="Unisex">Unisex</option>
+<option value="Nước hoa Chiết">Nước hoa Chiết</option>
+<option value="Set quà tặng">Set quà tặng</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Huy hiệu (Badge)</label>
+<select class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formBadge">
+<option value="HOT">HOT</option>
+<option value="-10%">-10%</option>
+<option value="-12%">-12%</option>
+<option value="Niche">Niche</option>
+<option value="Chiết 10ml">Chiết 10ml</option>
+<option value="Gift Set">Gift Set</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Tình trạng kho *</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formStock" placeholder="vd: Còn hàng hoặc Còn 3 chai" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Dung tích hỗ trợ</label>
+<div class="flex items-center gap-3 pt-2 text-xs">
+<label class="flex items-center gap-1"><input checked="" id="size5ml" type="checkbox"/> 5ml</label>
+<label class="flex items-center gap-1"><input checked="" id="size10ml" type="checkbox"/> 10ml</label>
+<label class="flex items-center gap-1"><input checked="" id="size50ml" type="checkbox"/> 50ml</label>
+<label class="flex items-center gap-1"><input checked="" id="size100ml" type="checkbox"/> 100ml</label>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">3 nốt hương nổi bật (ngăn cách dấu •) *</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formNotes" placeholder="vd: Cam bergamot • Hoa hồng Thổ Nhĩ Kỳ • Hoắc hương" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Mô tả ngắn</label>
+<textarea class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formDescription" placeholder="Hương thơm tinh tế, quyến rũ..." rows="2"></textarea>
+</div>
+<div class="flex justify-end gap-2 pt-2">
+<button class="px-4 py-2 rounded-full border border-gray-300 text-xs font-semibold" onclick="closeProductFormModal()" type="button">Hủy</button>
+<button class="px-6 py-2 rounded-full bg-ocean text-white font-bold text-xs hover:bg-ocean-dark shadow" type="submit">Lưu sản phẩm</button>
+</div>
+</form>
+</div>
+</div>
+<!-- APPLICATION LOGIC & LOCALSTORAGE ENGINE -->
+<script>
+    // 1. INITIAL 8 SEED PRODUCTS WITH EXACT MATCHED IMAGES & PRICES
+    const SEED_PRODUCTS = [
+      {
+        id: 'p1',
+        brand: 'CHANEL',
+        name: 'Chanel Coco Mademoiselle',
+        category: 'Nước hoa Nữ',
+        price: 3850000,
+        oldPrice: 4250000,
+        badge: 'HOT',
+        notes: 'Cam bergamot • Hoa hồng Thổ Nhĩ Kỳ • Hoắc hương',
+        stock: 'Còn hàng',
+        image: 'assets/coco.jpg',
+        active: true,
+        desc: 'Biểu tượng sang trọng vượt thời gian cho quý cô Tây Đô, hương hoa cỏ phương Đông quyến rũ đầy mê hoặc.'
+      },
+      {
+        id: 'p2',
+        brand: 'DIOR',
+        name: 'Dior Sauvage Eau de Parfum',
+        category: 'Nước hoa Nam',
+        price: 3450000,
+        oldPrice: 3800000,
+        badge: '-10%',
+        notes: 'Cam bergamot Calabria • Tiêu đen • Vani Papua New Guinea',
+        stock: 'Còn hàng',
+        image: 'assets/sauvage.jpg',
+        active: true,
+        desc: 'Hương thơm nam tính phóng khoáng lấy cảm hứng từ bầu trời hoàng hôn sa mạc huyền bí.'
+      },
+      {
+        id: 'p3',
+        brand: 'LE LABO',
+        name: 'Le Labo Santal 33',
+        category: 'Unisex',
+        price: 6800000,
+        oldPrice: 7200000,
+        badge: 'Niche',
+        notes: 'Gỗ đàn hương • Tuyết tùng • Da thuộc',
+        stock: 'Còn 3 chai',
+        image: 'https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=600&q=80',
+        active: true,
+        desc: 'Tuyệt tác Niche đẳng cấp toàn cầu, dấu ấn gỗ mộc khói mê đắm của giới mộ điệu.'
+      },
+      {
+        id: 'p4',
+        brand: 'CHANEL',
+        name: 'Bleu de Chanel Parfum',
+        category: 'Nước hoa Nam',
+        price: 3900000,
+        oldPrice: 4300000,
+        badge: 'HOT',
+        notes: 'Bưởi thanh mát • Gỗ tuyết tùng • Đàn hương New Caledonia',
+        stock: 'Còn hàng',
+        image: 'assets/bleu.jpg',
+        active: true,
+        desc: 'Hương thơm đại diện cho bản lĩnh quý ông lịch lãm, sâu lắng và bền bỉ suốt cả ngày.'
+      },
+      {
+        id: 'p5',
+        brand: 'LANCÔME',
+        name: 'Lancôme La Vie Est Belle',
+        category: 'Nước hoa Nữ',
+        price: 2850000,
+        oldPrice: 3150000,
+        badge: '-12%',
+        notes: 'Quả lý chua đen • Hoa diên vĩ • Kẹo hạt dẻ & Vani',
+        stock: 'Còn hàng',
+        image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80',
+        active: true,
+        desc: 'Nụ cười pha lê ngọt ngào mang thông điệp cuộc sống tươi đẹp ngập tràn ánh nắng.'
+      },
+      {
+        id: 'p6',
+        brand: 'YVES SAINT LAURENT',
+        name: 'YSL Libre Eau de Parfum',
+        category: 'Nước hoa Nữ',
+        price: 2950000,
+        oldPrice: 3300000,
+        badge: 'HOT',
+        notes: 'Hoa oải hương Pháp • Hoa cam Morocco • Vani Madagascar',
+        stock: 'Còn 3 chai',
+        image: 'assets/libre.jpg',
+        active: true,
+        desc: 'Tuyên ngôn tự do và quyến rũ rực rỡ với sự kết hợp tương phản độc đáo giữa hoa cam và oải hương.'
+      },
+      {
+        id: 'p7',
+        brand: 'LE LABO (CHIẾT CHÍNH HÃNG)',
+        name: 'Nước Hoa Chiết Santal 33 10ml',
+        category: 'Nước hoa Chiết',
+        price: 650000,
+        oldPrice: 750000,
+        badge: 'Chiết 10ml',
+        notes: 'Gỗ đàn hương • Giấy cói • Hoa tím',
+        stock: 'Còn hàng',
+        image: 'https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=600&q=80',
+        active: true,
+        desc: 'Chiết phòng Lab chuẩn định lượng từ chai nguyên seal chính hãng, tiện lợi bỏ túi du lịch.'
+      },
+      {
+        id: 'p8',
+        brand: 'BÉ CÁ STORE GIFT SET',
+        name: 'Set Quà Tặng 3 Ống Chiết Boutique',
+        category: 'Set quà tặng',
+        price: 899000,
+        oldPrice: 1050000,
+        badge: 'Gift Set',
+        notes: 'Gồm 3 mùi tự chọn (Nam/Nữ) • Kèm hộp hoa sáp & thiệp',
+        stock: 'Còn hàng',
+        image: 'assets/set-qua.jpg',
+        active: true,
+        desc: 'Món quà sang trọng tinh tế dành tặng người thương dịp sinh nhật, kỷ niệm tại Cần Thơ.'
+      }
+    ];
+
+    // 2. STATE STORAGE
+    const STORAGE_KEY_PRODUCTS = 'becastore_products_v2';
+    const STORAGE_KEY_CART = 'becastore_cart_v1';
+    const STORAGE_KEY_ORDERS = 'becastore_orders_v2';
+    const STORAGE_KEY_SETTINGS = 'becastore_settings_v1';
+    const STORAGE_KEY_ADMIN_AUTH = 'becastore_admin_auth';
+    const STORAGE_KEY_ADMIN_PASS = 'beca_admin_pass';
+
+    let products = [];
+    let cart = [];
+    let orders = [];
+    let shopSettings = {
+      shopName: 'Bé Cá Store',
+      subtitle: 'Thiện Hoàng',
+      hotline: '0838989567',
+      facebook: 'https://www.facebook.com/share/17tcD3VWrf/',
+      address: 'Đường Ngô Đức Kế, Phường Ninh Kiều, TP. Cần Thơ',
+      hours: '08:30 - 21:30 hàng ngày'
+    };
+
+    let currentCategory = 'Tất cả';
+    let currentPriceFilter = 'all';
+    let searchQuery = '';
+    let isAdminLoggedIn = false;
+    let selectedDetailProduct = null;
+    let currentDetailSize = '100ml Fullbox';
+    let currentDetailPrice = 3850000;
+    let currentDetailQty = 1;
+
+    // Helper: Admin password management
+    // No hardcoded default: first login sets the password (min 6 chars),
+    // so pushing this file to a public repo leaks no admin password.
+    function getAdminPassword() {
+      return localStorage.getItem(STORAGE_KEY_ADMIN_PASS) || '';
+    }
+
+    // Format currency VND
+    function formatVND(num) {
+      if (!num) return '0đ';
+      return new Intl.NumberFormat('vi-VN').format(num) + 'đ';
+    }
+
+    // Initialize data
+    function initData() {
+      // Products
+      const storedProducts = localStorage.getItem(STORAGE_KEY_PRODUCTS);
+      if (storedProducts) {
+        try {
+          products = JSON.parse(storedProducts);
+        } catch(e) {
+          products = SEED_PRODUCTS;
+        }
+      } else {
+        products = SEED_PRODUCTS;
+        localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+      }
+
+      // Cart
+      const storedCart = localStorage.getItem(STORAGE_KEY_CART);
+      if (storedCart) {
+        try { cart = JSON.parse(storedCart); } catch(e) { cart = []; }
+      }
+
+      // Orders (Default: Empty list)
+      const storedOrders = localStorage.getItem(STORAGE_KEY_ORDERS);
+      if (storedOrders) {
+        try { orders = JSON.parse(storedOrders); } catch(e) { orders = []; }
+      } else {
+        orders = [];
+        localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+      }
+
+      // Settings
+      const storedSettings = localStorage.getItem(STORAGE_KEY_SETTINGS);
+      if (storedSettings) {
+        try { shopSettings = JSON.parse(storedSettings); } catch(e) {}
+      }
+
+      // Auth
+      isAdminLoggedIn = localStorage.getItem(STORAGE_KEY_ADMIN_AUTH) === 'true';
+
+      updateShopSettingsUI();
+      updateAdminAuthUI();
+      renderProducts();
+      updateCartUI();
+      renderAdminProductsTable();
+      renderAdminOrdersTable();
+      updateAdminStats();
+    }
+
+    // Update shop settings UI elements
+    function updateShopSettingsUI() {
+      document.getElementById('footerAddressText').textContent = shopSettings.address;
+      document.getElementById('footerHotlineText').textContent = shopSettings.hotline;
+      document.getElementById('footerHotlineText').href = 'tel:' + shopSettings.hotline;
+      document.getElementById('footerZaloText').textContent = shopSettings.hotline;
+      document.getElementById('footerHoursText').textContent = 'Giờ mở cửa: ' + shopSettings.hours;
+
+      // Settings form fields
+      document.getElementById('settingShopName').value = shopSettings.shopName;
+      document.getElementById('settingShopSubtitle').value = shopSettings.subtitle;
+      document.getElementById('settingHotline').value = shopSettings.hotline;
+      document.getElementById('settingFacebook').value = shopSettings.facebook;
+      document.getElementById('settingAddress').value = shopSettings.address;
+      document.getElementById('settingHours').value = shopSettings.hours;
+    }
+
+    // Render Product Cards on Homepage
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      let filtered = products.filter(p => p.active !== false);
+
+      // Category filter
+      if (currentCategory !== 'Tất cả') {
+        filtered = filtered.filter(p => p.category === currentCategory);
+      }
+
+      // Price filter
+      if (currentPriceFilter === 'under1m') {
+        filtered = filtered.filter(p => p.price < 1000000);
+      } else if (currentPriceFilter === '1m-2m') {
+        filtered = filtered.filter(p => p.price >= 1000000 && p.price <= 2000000);
+      } else if (currentPriceFilter === 'above2m') {
+        filtered = filtered.filter(p => p.price > 2000000);
+      }
+
+      // Search Query
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        filtered = filtered.filter(p => 
+          p.name.toLowerCase().includes(q) || 
+          p.brand.toLowerCase().includes(q) || 
+          (p.notes && p.notes.toLowerCase().includes(q))
+        );
+      }
+
+      document.getElementById('visibleCount').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center">
+            <i data-lucide="package-search" class="w-12 h-12 text-gray-300 mx-auto mb-3"></i>
+            <p class="text-sm font-semibold text-brand-heading">Không tìm thấy sản phẩm phù hợp</p>
+            <p class="text-xs text-gray-400 mt-1">Vui lòng thử tìm kiếm với từ khóa khác hoặc bấm "Tất cả"</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl border border-ocean-border overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group relative";
+
+        // Admin actions
+        const adminActionsHtml = isAdminLoggedIn ? `
+          <div class="absolute top-2 right-2 z-20 flex gap-1">
+            <button onclick="event.stopPropagation(); editProduct('${p.id}')" title="Sửa" class="w-7 h-7 rounded-full bg-white/90 text-ocean shadow hover:bg-ocean hover:text-white flex items-center justify-center transition-colors">
+              <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+            </button>
+            <button onclick="event.stopPropagation(); deleteProduct('${p.id}')" title="Xóa" class="w-7 h-7 rounded-full bg-white/90 text-rose-600 shadow hover:bg-rose-600 hover:text-white flex items-center justify-center transition-colors">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        ` : '';
+
+        card.innerHTML = `
+          ${adminActionsHtml}
+          <!-- Image -->
+          <div class="aspect-[4/4] bg-ocean-surface relative overflow-hidden cursor-pointer" onclick="viewProductDetail('${p.id}')">
+            <img 
+              src="${p.image}" 
+              alt="${p.name}" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            >
+            <span class="absolute top-2.5 left-2.5 bg-sand text-brand-heading font-bold text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full shadow-sm">
+              ${p.badge || 'HOT'}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="p-3 sm:p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-1">
+                <span class="font-bold uppercase tracking-wider text-ocean-light">${p.brand}</span>
+                <span class="text-emerald-600 font-medium">${p.stock}</span>
+              </div>
+
+              <!-- Product Name max 2 lines -->
+              <h3 onclick="viewProductDetail('${p.id}')" class="font-heading font-bold text-xs sm:text-sm text-brand-heading line-clamp-2 hover:text-ocean transition-colors cursor-pointer leading-snug">
+                ${p.name}
+              </h3>
+
+              <!-- 3 scent notes fully visible max 2 lines -->
+              <p class="text-[11px] text-gray-500 mt-1.5 line-clamp-2 leading-relaxed">
+                ${p.notes}
+              </p>
+
+              <!-- Star Rating -->
+              <div class="flex items-center gap-1 text-amber-400 mt-2 text-[11px]">
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3 h-3 fill-amber-400"></i>
+                <span class="text-gray-400 font-medium ml-1">(5.0)</span>
+              </div>
+            </div>
+
+            <!-- Price & Actions -->
+            <div class="mt-3 pt-3 border-t border-ocean-border/60">
+              <div class="flex items-baseline gap-2 mb-2.5">
+                <span class="font-heading font-bold text-sm sm:text-base text-ocean">${formatVND(p.price)}</span>
+                ${p.oldPrice ? `<span class="text-[11px] sm:text-xs text-gray-400 line-through">${formatVND(p.oldPrice)}</span>` : ''}
+              </div>
+
+              <div class="grid grid-cols-2 gap-1.5">
+                <button onclick="quickBuyCard('${p.id}')" class="h-9 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-xs flex items-center justify-center gap-1 transition-all shadow-sm active:scale-95">
+                  <i data-lucide="zap" class="w-3 h-3"></i>
+                  <span>Mua ngay</span>
+                </button>
+                <a href="https://zalo.me/0838989567" target="_blank" rel="noopener noreferrer" class="h-9 rounded-full border border-ocean text-ocean hover:bg-ocean hover:text-white font-medium text-xs flex items-center justify-center gap-1 transition-all">
+                  <i data-lucide="message-circle" class="w-3 h-3"></i>
+                  <span>Nhắn Zalo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // Category filtering
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('#categoryChips .chip-btn').forEach(btn => {
+        if (btn.textContent.trim() === cat) {
+          btn.className = "chip-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-ocean text-white shadow-sm";
+        } else {
+          btn.className = "chip-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-brand-body border border-ocean-border hover:border-ocean hover:text-ocean";
+        }
+      });
+      switchView('home');
+      renderProducts();
+    }
+
+    // Price filtering
+    function filterPrice(type) {
+      currentPriceFilter = type;
+      document.querySelectorAll('.price-chip').forEach(btn => {
+        btn.className = "price-chip font-medium px-3 py-1.5 rounded-lg bg-white border border-ocean-border text-brand-body hover:border-ocean transition-all";
+      });
+      event.target.className = "price-chip font-medium px-3 py-1.5 rounded-lg bg-ocean/10 text-ocean font-bold border border-ocean/30 transition-all";
+      renderProducts();
+    }
+
+    // Handle global search
+    function handleSearch(q) {
+      searchQuery = q;
+      renderProducts();
+    }
+
+    // View Switching: SPA (Home vs Product Detail)
+    function switchView(viewName) {
+      const home = document.getElementById('viewHome');
+      const detail = document.getElementById('viewProductDetail');
+
+      if (viewName === 'home') {
+        home.classList.remove('hidden');
+        detail.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewName === 'detail') {
+        home.classList.add('hidden');
+        detail.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Load and Display Product Detail Page
+    function viewProductDetail(productId) {
+      const p = products.find(item => item.id === productId);
+      if (!p) return;
+
+      selectedDetailProduct = p;
+      currentDetailQty = 1;
+      currentDetailSize = '100ml Fullbox';
+      currentDetailPrice = p.price;
+
+      // Populate text & elements
+      document.getElementById('detailBreadcrumbCat').textContent = p.category;
+      document.getElementById('detailBreadcrumbBrand').textContent = p.brand;
+      document.getElementById('detailBreadcrumbName').textContent = p.name;
+
+      document.getElementById('detailMainImg').src = p.image;
+      document.getElementById('detailBadge').textContent = p.badge || 'HOT';
+      document.getElementById('detailBrand').textContent = p.brand;
+      document.getElementById('detailName').textContent = p.name + ' Eau de Parfum';
+      document.getElementById('detailStock').textContent = p.stock + ' sẵn tại shop';
+
+      document.getElementById('detailPrice').textContent = formatVND(p.price);
+      document.getElementById('detailOldPrice').textContent = p.oldPrice ? formatVND(p.oldPrice) : '';
+      document.getElementById('detailQty').textContent = '1';
+
+      // 3 Thumbnails
+      const thumbsContainer = document.getElementById('detailThumbs');
+      thumbsContainer.innerHTML = `
+        <div class="aspect-square rounded-xl overflow-hidden border-2 border-ocean cursor-pointer">
+          <img src="${p.image}" class="w-full h-full object-cover">
+        </div>
+        <div class="aspect-square rounded-xl overflow-hidden border border-ocean-border cursor-pointer opacity-70 hover:opacity-100">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover">
+        </div>
+        <div class="aspect-square rounded-xl overflow-hidden border border-ocean-border cursor-pointer opacity-70 hover:opacity-100">
+          <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover">
+        </div>
+      `;
+
+      // Scent pyramid details
+      const noteParts = p.notes ? p.notes.split('•') : [];
+      document.getElementById('pyramidTop').textContent = (noteParts[0] || 'Cam Bergamot, Quýt Clementine') + ' tươi mát bừng sáng năng lượng đầu ngày.';
+      document.getElementById('pyramidHeart').textContent = (noteParts[1] || 'Hoa hồng Thổ Nhĩ Kỳ, Hoa Nhài') + ' quyến rũ nồng nàn, sang trọng quý phái.';
+      document.getElementById('pyramidBase').textContent = (noteParts[2] || 'Hoắc hương, Gỗ tuyết tùng, Vani') + ' lưu luyến đọng lại trên da suốt 8-12 tiếng.';
+
+      // Render 4 Related Products
+      const relatedGrid = document.getElementById('relatedGrid');
+      relatedGrid.innerHTML = '';
+      const relatedList = products.filter(item => item.id !== p.id).slice(0, 4);
+      relatedList.forEach(rel => {
+        const relCard = document.createElement('div');
+        relCard.className = "bg-white rounded-2xl border border-ocean-border overflow-hidden hover:shadow-md transition-all cursor-pointer";
+        relCard.onclick = () => viewProductDetail(rel.id);
+        relCard.innerHTML = `
+          <div class="aspect-square bg-ocean-surface">
+            <img src="${rel.image}" alt="${rel.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="p-3">
+            <span class="text-[10px] uppercase font-bold text-ocean-light">${rel.brand}</span>
+            <h4 class="font-heading font-bold text-xs text-brand-heading line-clamp-1 mt-0.5">${rel.name}</h4>
+            <div class="mt-2 font-heading font-bold text-xs text-ocean">${formatVND(rel.price)}</div>
+          </div>
+        `;
+        relatedGrid.appendChild(relCard);
+      });
+
+      switchView('detail');
+      lucide.createIcons();
+    }
+
+    // Detail Size selector pill
+    function selectDetailSize(btn, sizeName, sizePrice) {
+      document.querySelectorAll('#detailSizeGroup .size-pill').forEach(b => {
+        b.className = "size-pill py-2.5 px-3 rounded-xl border border-ocean-border text-xs text-center font-medium hover:border-ocean transition-all";
+      });
+      btn.className = "size-pill active py-2.5 px-3 rounded-xl border-2 border-ocean bg-ocean/5 text-xs text-center font-medium transition-all";
+
+      currentDetailSize = sizeName;
+      currentDetailPrice = sizePrice;
+      document.getElementById('detailPrice').textContent = formatVND(sizePrice);
+    }
+
+    function changeDetailQty(delta) {
+      currentDetailQty = Math.max(1, currentDetailQty + delta);
+      document.getElementById('detailQty').textContent = currentDetailQty;
+    }
+
+    // Detail CTAs
+    function addToCartFromDetail() {
+      if (!selectedDetailProduct) return;
+      addToCart({
+        id: selectedDetailProduct.id,
+        name: selectedDetailProduct.name,
+        brand: selectedDetailProduct.brand,
+        image: selectedDetailProduct.image,
+        size: currentDetailSize,
+        price: currentDetailPrice,
+        qty: currentDetailQty
+      });
+    }
+
+    function buyNowFromDetail() {
+      addToCartFromDetail();
+      toggleCart(true);
+    }
+
+    function quickBuyCard(productId) {
+      const p = products.find(item => item.id === productId);
+      if (!p) return;
+      addToCart({
+        id: p.id,
+        name: p.name,
+        brand: p.brand,
+        image: p.image,
+        size: '100ml Fullbox',
+        price: p.price,
+        qty: 1
+      });
+      toggleCart(true);
+    }
+
+    function mobileQuickBuy() {
+      if (products.length > 0) {
+        quickBuyCard(products[0].id);
+      }
+    }
+
+    // ================= CART MANAGEMENT =================
+    function addToCart(item) {
+      const existing = cart.find(c => c.id === item.id && c.size === item.size);
+      if (existing) {
+        existing.qty += item.qty;
+      } else {
+        cart.push(item);
+      }
+      localStorage.setItem(STORAGE_KEY_CART, JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function changeCartItemQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem(STORAGE_KEY_CART, JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY_CART, JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartCountBadge');
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.textContent = totalCount;
+
+      const container = document.getElementById('cartItemsList');
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12">
+            <i data-lucide="shopping-bag" class="w-16 h-16 text-gray-300 mb-3"></i>
+            <p class="font-heading font-bold text-base text-brand-heading">Giỏ hàng đang trống</p>
+            <p class="text-xs text-brand-body mt-1">Hãy chọn sản phẩm bạn yêu thích để nhận ưu đãi freeship Cần Thơ</p>
+          </div>
+        `;
+        document.getElementById('cartDrawerTotal').textContent = '0đ';
+        lucide.createIcons();
+        return;
+      }
+
+      let total = 0;
+      cart.forEach((item, idx) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+
+        const row = document.createElement('div');
+        row.className = "flex gap-3 p-3 rounded-2xl bg-ocean-surface border border-ocean-border relative";
+        row.innerHTML = `
+          <div class="w-16 h-16 rounded-xl overflow-hidden bg-white flex-shrink-0 border border-ocean-border">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between gap-1">
+              <h4 class="font-heading font-bold text-xs text-brand-heading line-clamp-1 leading-tight">${item.name}</h4>
+              <button onclick="removeCartItem(${idx})" class="text-gray-400 hover:text-rose-500 transition-colors p-0.5">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <p class="text-[11px] text-ocean-light font-medium mt-0.5">${item.size}</p>
+            <div class="flex items-center justify-between mt-2">
+              <span class="font-heading font-bold text-xs text-ocean">${formatVND(item.price)}</span>
+              <div class="flex items-center border border-ocean-border rounded-full bg-white">
+                <button onclick="changeCartItemQty(${idx}, -1)" class="w-6 h-6 flex items-center justify-center text-xs text-brand-heading hover:text-ocean">-</button>
+                <span class="w-6 text-center text-xs font-bold text-brand-heading">${item.qty}</span>
+                <button onclick="changeCartItemQty(${idx}, 1)" class="w-6 h-6 flex items-center justify-center text-xs text-brand-heading hover:text-ocean">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      document.getElementById('cartDrawerTotal').textContent = formatVND(total);
+      lucide.createIcons();
+    }
+
+    function toggleCart(show) {
+      const drawer = document.getElementById('cartDrawer');
+      const backdrop = document.getElementById('cartDrawerBackdrop');
+      if (show) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    // Order via Zalo with prefilled text
+    function orderViaZalo() {
+      if (cart.length === 0) {
+        alert('Giỏ hàng của bạn đang trống!');
+        return;
+      }
+
+      let text = 'Chào Bé Cá Store - Thiện Hoàng! Tôi muốn đặt mua các sản phẩm sau:\n';
+      let total = 0;
+      cart.forEach((it, i) => {
+        text += `${i + 1}. ${it.name} (${it.size}) x${it.qty} = ${formatVND(it.price * it.qty)}\n`;
+        total += it.price * it.qty;
+      });
+      text += `Tổng cộng: ${formatVND(total)}\nĐịa chỉ nhận hàng tại Cần Thơ: ...`;
+
+      // Save to Orders list
+      const newOrder = {
+        id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+        date: new Date().toLocaleDateString('vi-VN'),
+        customer: 'Khách hàng Zalo',
+        phone: '0838989567',
+        items: cart.map(i => `${i.name} (${i.size}) x${i.qty}`).join(', '),
+        total: total,
+        status: 'Chờ xác nhận'
+      };
+      orders.unshift(newOrder);
+      localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+      renderAdminOrdersTable();
+      updateAdminStats();
+
+      // Open Zalo
+      const zaloUrl = `https://zalo.me/0838989567?text=${encodeURIComponent(text)}`;
+      window.open(zaloUrl, '_blank');
+    }
+
+    function checkoutDirectly() {
+      if (cart.length === 0) {
+        alert('Giỏ hàng trống!');
+        return;
+      }
+      alert('Đơn hàng của bạn đã được ghi nhận! Bé Cá Store sẽ gọi xác nhận và giao hỏa tốc 2h tại Cần Thơ.');
+      cart = [];
+      localStorage.removeItem(STORAGE_KEY_CART);
+      updateCartUI();
+      toggleCart(false);
+    }
+
+    // ================= ADMIN PANEL LOGIC =================
+    function toggleAdminPanel() {
+      if (!isAdminLoggedIn) {
+        openAdminModal();
+      } else {
+        openAdminPanel();
+      }
+    }
+
+    function openAdminModal() {
+      if (isAdminLoggedIn) {
+        openAdminPanel();
+        return;
+      }
+      document.getElementById('adminLoginModal').classList.remove('hidden');
+      document.getElementById('adminPasswordField').focus();
+    }
+
+    function closeAdminLoginModal() {
+      document.getElementById('adminLoginModal').classList.add('hidden');
+      document.getElementById('adminLoginError').classList.add('hidden');
+      document.getElementById('adminPasswordField').value = '';
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('adminPasswordField').value;
+      const validPass = getAdminPassword();
+      const errEl = document.getElementById('adminLoginError');
+      // First run: no password set yet — the entered password becomes the admin password.
+      if (!validPass) {
+        if (pwd.length < 6) {
+          errEl.textContent = 'Lần đầu mở Admin: đặt mật khẩu mới từ 6 ký tự trở lên, nhớ kỹ nhé!';
+          errEl.classList.remove('hidden');
+          return;
+        }
+        localStorage.setItem(STORAGE_KEY_ADMIN_PASS, pwd);
+        isAdminLoggedIn = true;
+        localStorage.setItem(STORAGE_KEY_ADMIN_AUTH, 'true');
+        closeAdminLoginModal();
+        updateAdminAuthUI();
+        renderProducts();
+        openAdminPanel();
+        return;
+      }
+      if (pwd === validPass) {
+        isAdminLoggedIn = true;
+        localStorage.setItem(STORAGE_KEY_ADMIN_AUTH, 'true');
+        closeAdminLoginModal();
+        updateAdminAuthUI();
+        renderProducts();
+        openAdminPanel();
+      } else {
+        errEl.textContent = 'Mật khẩu không chính xác. Vui lòng thử lại!';
+        errEl.classList.remove('hidden');
+      }
+    }
+
+    function handleAdminLogout() {
+      isAdminLoggedIn = false;
+      localStorage.removeItem(STORAGE_KEY_ADMIN_AUTH);
+      updateAdminAuthUI();
+      renderProducts();
+      closeAdminPanel();
+    }
+
+    function updateAdminAuthUI() {
+      const statusText = document.getElementById('adminStatusText');
+      const statusBtn = document.getElementById('adminStatusBtn');
+      if (isAdminLoggedIn) {
+        statusText.textContent = 'Admin (Đã bật)';
+        statusBtn.classList.add('text-ocean', 'font-bold');
+      } else {
+        statusText.textContent = 'Admin';
+        statusBtn.classList.remove('text-ocean', 'font-bold');
+      }
+    }
+
+    function openAdminPanel() {
+      const panel = document.getElementById('adminPanelDrawer');
+      const backdrop = document.getElementById('adminPanelDrawerBackdrop');
+      backdrop.classList.remove('hidden');
+      setTimeout(() => panel.classList.remove('translate-x-full'), 10);
+      updateAdminStats();
+      renderAdminProductsTable();
+      renderAdminOrdersTable();
+    }
+
+    function closeAdminPanel() {
+      const panel = document.getElementById('adminPanelDrawer');
+      const backdrop = document.getElementById('adminPanelDrawerBackdrop');
+      panel.classList.add('translate-x-full');
+      setTimeout(() => backdrop.classList.add('hidden'), 300);
+    }
+
+    function switchAdminTab(tab) {
+      document.querySelectorAll('.admin-tab').forEach(b => {
+        b.className = "admin-tab py-3 px-4 border-b-2 border-transparent text-brand-body hover:text-ocean";
+      });
+      document.getElementById('tabBtn-' + tab).className = "admin-tab active py-3 px-4 border-b-2 border-ocean text-ocean font-bold";
+
+      document.getElementById('adminTab-overview').classList.add('hidden');
+      document.getElementById('adminTab-products').classList.add('hidden');
+      document.getElementById('adminTab-orders').classList.add('hidden');
+      document.getElementById('adminTab-settings').classList.add('hidden');
+
+      document.getElementById('adminTab-' + tab).classList.remove('hidden');
+    }
+
+    function updateAdminStats() {
+      document.getElementById('statTotalProducts').textContent = products.length;
+      const inStock = products.filter(p => !p.stock.includes('Hết') && p.active !== false).length;
+      document.getElementById('statInStock').textContent = inStock;
+      document.getElementById('statOutOfStock').textContent = products.length - inStock;
+
+      const totalVal = products.reduce((acc, p) => acc + (p.price || 0), 0);
+      document.getElementById('statTotalValue').textContent = formatVND(totalVal);
+    }
+
+    // Render Admin Products Table
+    function renderAdminProductsTable(filterText = '') {
+      const tbody = document.getElementById('adminProductsTableBody');
+      tbody.innerHTML = '';
+
+      let list = products;
+      if (filterText) {
+        list = list.filter(p => p.name.toLowerCase().includes(filterText.toLowerCase()) || p.brand.toLowerCase().includes(filterText.toLowerCase()));
+      }
+
+      list.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-ocean-surface/50 transition-colors";
+        tr.innerHTML = `
+          <td class="p-3">
+            <img src="${p.image}" class="w-10 h-10 rounded-lg object-cover border border-ocean-border">
+          </td>
+          <td class="p-3">
+            <div class="font-bold text-brand-heading">${p.name}</div>
+            <div class="text-[10px] text-ocean-light uppercase font-semibold">${p.brand}</div>
+          </td>
+          <td class="p-3">${p.category}</td>
+          <td class="p-3 font-bold text-ocean">${formatVND(p.price)}</td>
+          <td class="p-3">
+            <button onclick="toggleProductVisibility('${p.id}')" class="px-2 py-0.5 rounded-full text-[10px] font-bold ${p.active !== false ? 'bg-emerald-100 text-emerald-700' : 'bg-gray-100 text-gray-500'}">
+              ${p.active !== false ? 'Hiển thị' : 'Đang ẩn'}
+            </button>
+          </td>
+          <td class="p-3 text-right">
+            <div class="inline-flex gap-1.5">
+              <button onclick="editProduct('${p.id}')" class="p-1.5 rounded-lg bg-ocean/10 text-ocean hover:bg-ocean hover:text-white transition-colors" title="Sửa">
+                <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+              </button>
+              <button onclick="deleteProduct('${p.id}')" class="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-colors" title="Xóa">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    function handleAdminProductSearch(val) {
+      renderAdminProductsTable(val);
+    }
+
+    function toggleProductVisibility(id) {
+      const p = products.find(x => x.id === id);
+      if (p) {
+        p.active = p.active === false ? true : false;
+        localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+        renderAdminProductsTable();
+        renderProducts();
+        updateAdminStats();
+      }
+    }
+
+    function deleteProduct(id) {
+      if (confirm('Xóa sản phẩm này khỏi hệ thống Bé Cá Store?')) {
+        products = products.filter(p => p.id !== id);
+        localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+        renderAdminProductsTable();
+        renderProducts();
+        updateAdminStats();
+      }
+    }
+
+    // Render Admin Orders Table (Empty State or Real Prepending Orders)
+    function renderAdminOrdersTable() {
+      const tbody = document.getElementById('adminOrdersTableBody');
+      tbody.innerHTML = '';
+
+      if (!orders || orders.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="p-8 text-center text-gray-500 bg-white">
+              <div class="flex flex-col items-center justify-center space-y-2">
+                <i data-lucide="inbox" class="w-8 h-8 text-ocean/40"></i>
+                <p class="font-medium text-xs sm:text-sm text-brand-heading">Chưa có đơn hàng mới từ Zalo.</p>
+                <p class="text-[11px] text-gray-400">Các đơn đặt hàng qua nút "Đặt hàng qua Zalo" sẽ tự động xuất hiện tại đây.</p>
+              </div>
+            </td>
+          </tr>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      orders.forEach(ord => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-ocean-surface/50 transition-colors";
+        tr.innerHTML = `
+          <td class="p-3">
+            <div class="font-bold text-brand-heading">${ord.id}</div>
+            <div class="text-[10px] text-gray-400">${ord.date}</div>
+          </td>
+          <td class="p-3">
+            <div class="font-semibold text-brand-heading">${ord.customer}</div>
+            <div class="text-[10px] text-gray-500">${ord.phone}</div>
+          </td>
+          <td class="p-3 max-w-xs truncate">${ord.items}</td>
+          <td class="p-3 font-bold text-ocean">${formatVND(ord.total)}</td>
+          <td class="p-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${ord.status === 'Đã giao' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">
+              ${ord.status}
+            </span>
+          </td>
+          <td class="p-3 text-right">
+            <a href="https://zalo.me/${shopSettings.hotline}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-[10px] transition-colors">
+              <i data-lucide="message-circle" class="w-3 h-3"></i> Chat Zalo
+            </a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    // Save Shop Settings
+    function handleSaveShopSettings(e) {
+      e.preventDefault();
+      shopSettings.shopName = document.getElementById('settingShopName').value;
+      shopSettings.subtitle = document.getElementById('settingShopSubtitle').value;
+      shopSettings.hotline = document.getElementById('settingHotline').value;
+      shopSettings.facebook = document.getElementById('settingFacebook').value;
+      shopSettings.address = document.getElementById('settingAddress').value;
+      shopSettings.hours = document.getElementById('settingHours').value;
+
+      localStorage.setItem(STORAGE_KEY_SETTINGS, JSON.stringify(shopSettings));
+      updateShopSettingsUI();
+      alert('Đã cập nhật cài đặt cửa hàng thành công!');
+    }
+
+    // Change Admin Password
+    function handleChangeAdminPassword(e) {
+      e.preventDefault();
+      const curPass = document.getElementById('currentAdminPass').value;
+      const newPass = document.getElementById('newAdminPass').value;
+
+      if (curPass !== getAdminPassword()) {
+        alert('Mật khẩu hiện tại không đúng. Vui lòng kiểm tra lại!');
+        return;
+      }
+      if (!newPass.trim()) {
+        alert('Mật khẩu mới không được để trống!');
+        return;
+      }
+
+      localStorage.setItem(STORAGE_KEY_ADMIN_PASS, newPass.trim());
+      document.getElementById('currentAdminPass').value = '';
+      document.getElementById('newAdminPass').value = '';
+      alert('Đã đổi mật khẩu Admin thành công!');
+    }
+
+    // ================= ADD / EDIT PRODUCT MODAL =================
+    function openProductForm() {
+      document.getElementById('productFormTitle').textContent = 'Đăng Sản Phẩm Mới';
+      document.getElementById('formProductId').value = '';
+      document.getElementById('formName').value = '';
+      document.getElementById('formBrand').value = '';
+      document.getElementById('formPrice').value = '';
+      document.getElementById('formOldPrice').value = '';
+      document.getElementById('formCategory').value = 'Nước hoa Nữ';
+      document.getElementById('formBadge').value = 'HOT';
+      document.getElementById('formStock').value = 'Còn hàng';
+      document.getElementById('formNotes').value = '';
+      document.getElementById('formDescription').value = '';
+      document.getElementById('formImgUrl').value = '';
+      document.getElementById('formImgPreview').src = 'assets/coco.jpg';
+      document.getElementById('productFormModal').classList.remove('hidden');
+    }
+
+    function editProduct(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+
+      document.getElementById('productFormTitle').textContent = 'Chỉnh Sửa Sản Phẩm';
+      document.getElementById('formProductId').value = p.id;
+      document.getElementById('formName').value = p.name;
+      document.getElementById('formBrand').value = p.brand;
+      document.getElementById('formPrice').value = p.price;
+      document.getElementById('formOldPrice').value = p.oldPrice || '';
+      document.getElementById('formCategory').value = p.category;
+      document.getElementById('formBadge').value = p.badge || 'HOT';
+      document.getElementById('formStock').value = p.stock;
+      document.getElementById('formNotes').value = p.notes;
+      document.getElementById('formDescription').value = p.desc || '';
+      document.getElementById('formImgUrl').value = p.image;
+      document.getElementById('formImgPreview').src = p.image;
+
+      document.getElementById('productFormModal').classList.remove('hidden');
+    }
+
+    function closeProductFormModal() {
+      document.getElementById('productFormModal').classList.add('hidden');
+    }
+
+    function previewUrlImage(url) {
+      if (url.trim()) {
+        document.getElementById('formImgPreview').src = url;
+      }
+    }
+
+    // Image File Upload with canvas compression to max 800px width
+    function handleImageFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const MAX_WIDTH = 800;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > MAX_WIDTH) {
+            height = Math.round((height * MAX_WIDTH) / width);
+            width = MAX_WIDTH;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+          document.getElementById('formImgPreview').src = compressedDataUrl;
+          document.getElementById('formImgUrl').value = compressedDataUrl;
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Handle Form Submit
+    function handleSaveProductForm(e) {
+      e.preventDefault();
+
+      const editId = document.getElementById('formProductId').value;
+      const imgUrl = document.getElementById('formImgPreview').src;
+      const name = document.getElementById('formName').value;
+      const brand = document.getElementById('formBrand').value;
+      const price = parseInt(document.getElementById('formPrice').value, 10);
+      const oldPrice = document.getElementById('formOldPrice').value ? parseInt(document.getElementById('formOldPrice').value, 10) : null;
+      const category = document.getElementById('formCategory').value;
+      const badge = document.getElementById('formBadge').value;
+      const stock = document.getElementById('formStock').value;
+      const notes = document.getElementById('formNotes').value;
+      const desc = document.getElementById('formDescription').value;
+
+      if (editId) {
+        // Update existing
+        const idx = products.findIndex(p => p.id === editId);
+        if (idx !== -1) {
+          products[idx] = {
+            ...products[idx],
+            name, brand, price, oldPrice, category, badge, stock, notes, desc, image: imgUrl
+          };
+        }
+      } else {
+        // Add new
+        const newProd = {
+          id: 'p_' + Date.now(),
+          name, brand, price, oldPrice, category, badge, stock, notes, desc,
+          image: imgUrl,
+          active: true
+        };
+        products.unshift(newProd);
+      }
+
+      localStorage.setItem(STORAGE_KEY_PRODUCTS, JSON.stringify(products));
+      closeProductFormModal();
+      renderProducts();
+      renderAdminProductsTable();
+      updateAdminStats();
+      alert('Đã lưu sản phẩm thành công!');
+    }
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      initData();
+      lucide.createIcons();
+    });
+  </script>
+</body></html>
