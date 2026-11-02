@@ -581,6 +581,22 @@
 </div>
 </footer>
 <!-- 8. FLOATING BUTTONS (BOTTOM-RIGHT) -->
+<!-- POPUP ĐƠN HÀNG THẬT: chỉ hiện đơn có thật trong danh sách đơn hàng, chưa có đơn thì ẩn. Không bịa tên/số/khu vực. -->
+<div class="fixed bottom-24 md:bottom-6 left-4 z-40 max-w-[calc(100vw-2rem)] sm:max-w-xs opacity-0 translate-y-3 pointer-events-none transition-all duration-500" id="orderPopup">
+<div class="bg-white rounded-2xl shadow-xl border border-ocean-border p-3.5 flex items-start gap-3">
+<div class="w-9 h-9 shrink-0 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+<i class="w-4 h-4" data-lucide="shopping-bag"></i>
+</div>
+<div class="min-w-0 flex-1">
+<p class="text-[11px] font-bold text-emerald-600 uppercase tracking-wide">Đơn hàng mới</p>
+<p class="text-xs font-semibold text-brand-heading leading-snug" id="orderPopupItems"></p>
+<p class="text-[11px] text-brand-body" id="orderPopupMeta"></p>
+</div>
+<button class="shrink-0 text-gray-400 hover:text-gray-600 p-1" onclick="hideOrderPopup(true)" title="Đóng">
+<i class="w-4 h-4" data-lucide="x"></i>
+</button>
+</div>
+</div>
 <div class="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-40 flex flex-col gap-2.5 items-end">
 <!-- Facebook Float -->
 <a class="w-12 h-12 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform" href="https://www.facebook.com/share/17tcD3VWrf/" rel="noopener noreferrer" target="_blank" title="Facebook Bé Cá Store">
@@ -764,6 +780,31 @@
 <h4 class="font-heading font-bold text-sm text-brand-heading">Danh sách đơn hàng Zalo</h4>
 <span class="text-xs text-gray-500">Tự động ghi nhận khi khách gửi đơn</span>
 </div>
+<form class="bg-ocean-surface/60 border border-ocean-border rounded-2xl p-4 space-y-3" onsubmit="handleAddManualOrder(event)">
+<div class="flex items-center justify-between gap-2">
+<h5 class="font-heading font-bold text-sm text-brand-heading">Ghi đơn đã bán (đơn thật)</h5>
+<span class="text-[11px] text-gray-500">Popup chỉ hiện đơn thật</span>
+</div>
+<p class="text-[11px] text-gray-500 leading-relaxed">Dùng để ghi lại đơn bán thật qua Zalo / điện thoại / trực tiếp. Chỉ ghi đơn có thật — popup trên web sẽ hiện các đơn này cho khách xem.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Sản phẩm</label>
+<select class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="manualOrderProduct" onchange="updateManualOrderSizes()"></select>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Dung tích</label>
+<select class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="manualOrderSize" onchange="updateManualOrderTotal()"></select>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Số lượng</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="manualOrderQty" min="1" oninput="updateManualOrderTotal()" type="number" value="1"/>
+</div>
+</div>
+<div class="flex items-center justify-between gap-2">
+<span class="text-xs text-brand-body">Tổng tiền: <strong class="text-ocean font-heading" id="manualOrderTotal">0đ</strong></span>
+<button class="h-10 px-5 rounded-full bg-ocean text-white font-bold text-xs shadow-sm hover:bg-ocean-dark transition-all" type="submit">+ Thêm đơn thật</button>
+</div>
+</form>
 <div class="border border-ocean-border rounded-2xl overflow-hidden overflow-x-auto">
 <table class="w-full text-left text-xs">
 <thead class="bg-ocean-surface text-brand-heading font-bold border-b border-ocean-border">
@@ -904,7 +945,6 @@
 <select class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="formBadge">
 <option value="HOT">HOT</option>
 <option value="-10%">-10%</option>
-<option value="-12%">-12%</option>
 <option value="Niche">Niche</option>
 <option value="Chiết 10ml">Chiết 10ml</option>
 <option value="Gift Set">Gift Set</option>
@@ -1211,6 +1251,8 @@ const VIETQR_BANKS = [
       renderAdminProductsTable();
       renderAdminOrdersTable();
       updateAdminStats();
+      populateManualOrderForm();
+      startOrderPopup();
     }
 
     // Update shop settings UI elements
@@ -1753,6 +1795,10 @@ const VIETQR_BANKS = [
         return;
       }
 
+      // Sinh mã đơn TRƯỚC khi dùng trong nội dung tin nhắn (dùng chung mã BCxxxxxx với mã QR nếu đã hiện QR)
+      const orderCode = pendingQrOrderCode || ('BC' + Math.floor(100000 + Math.random() * 900000));
+      pendingQrOrderCode = null;
+
       let text = 'Chào Bé Cá Store - Thiện Hoàng! Tôi muốn đặt mua các sản phẩm sau:\n';
       let total = 0;
       cart.forEach((it, i) => {
@@ -1761,9 +1807,7 @@ const VIETQR_BANKS = [
       });
       text += `Tổng cộng: ${formatVND(total)}\nMã đơn: ${orderCode}\nĐịa chỉ nhận hàng tại Cần Thơ: ...`;
 
-      // Save to Orders list — dung chung ma don BCxxxxxx voi ma QR (neu da hien QR)
-      const orderCode = pendingQrOrderCode || ('BC' + Math.floor(100000 + Math.random() * 900000));
-      pendingQrOrderCode = null;
+      // Save to Orders list
       const newOrder = {
         id: orderCode,
         date: new Date().toLocaleDateString('vi-VN'),
@@ -1778,6 +1822,8 @@ const VIETQR_BANKS = [
       renderAdminOrdersTable();
       updateAdminStats();
       renderQrPaySection(cart.reduce((s, i) => s + i.price * i.qty, 0));
+      popupOrderIdx = 0;
+      showOrderPopup();
 
       // Open Zalo
       const zaloUrl = `https://zalo.me/0838989567?text=${encodeURIComponent(text)}`;
@@ -1789,7 +1835,26 @@ const VIETQR_BANKS = [
         alert('Giỏ hàng trống!');
         return;
       }
-      alert('Đơn hàng của bạn đã được ghi nhận! Bé Cá Store sẽ gọi xác nhận và giao hỏa tốc 2h tại Cần Thơ.');
+      // Ghi đơn vào danh sách đơn hàng TRƯỚC khi xóa giỏ, để admin thấy được đơn
+      const orderCode = pendingQrOrderCode || ('BC' + Math.floor(100000 + Math.random() * 900000));
+      pendingQrOrderCode = null;
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      orders.unshift({
+        id: orderCode,
+        date: new Date().toLocaleDateString('vi-VN'),
+        customer: 'Khách hàng Zalo',
+        phone: '0838989567',
+        items: cart.map(i => `${i.name} (${i.size}) x${i.qty}`).join(', '),
+        total: total,
+        status: 'Chờ xác nhận'
+      });
+      localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+      renderAdminOrdersTable();
+      updateAdminStats();
+      renderQrPaySection(total);
+      popupOrderIdx = 0;
+      showOrderPopup();
+      alert('Đơn hàng ' + orderCode + ' của bạn đã được ghi nhận! Bé Cá Store sẽ gọi xác nhận và giao hỏa tốc 2h tại Cần Thơ.');
       cart = [];
       localStorage.removeItem(STORAGE_KEY_CART);
       updateCartUI();
@@ -1903,6 +1968,7 @@ const VIETQR_BANKS = [
       document.getElementById('adminTab-settings').classList.add('hidden');
 
       document.getElementById('adminTab-' + tab).classList.remove('hidden');
+      if (tab === 'orders') populateManualOrderForm();
     }
 
     function updateAdminStats() {
@@ -2033,6 +2099,112 @@ const VIETQR_BANKS = [
         tbody.appendChild(tr);
       });
       lucide.createIcons();
+    }
+
+    // ================= POPUP ĐƠN HÀNG THẬT =================
+    // Chỉ hiện đơn có thật trong danh sách orders (khách đặt qua web hoặc shop ghi tay đơn đã bán).
+    // Chưa có đơn thì không hiện gì. Không bịa tên, số điện thoại hay khu vực.
+    let popupOrderIdx = 0;
+    let popupHideTimer = null;
+    let popupStarted = false;
+    let popupDismissed = false;
+
+    function orderPopupText(ord) {
+      return { items: ord.items, meta: 'Mã ' + ord.id + ' • ' + formatVND(ord.total) + ' • ' + ord.date };
+    }
+
+    function showOrderPopup() {
+      if (popupDismissed || !orders || orders.length === 0) return;
+      const ord = orders[popupOrderIdx % orders.length];
+      popupOrderIdx++;
+      const t = orderPopupText(ord);
+      document.getElementById('orderPopupItems').textContent = t.items;
+      document.getElementById('orderPopupMeta').textContent = t.meta;
+      const el = document.getElementById('orderPopup');
+      el.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+      lucide.createIcons();
+      clearTimeout(popupHideTimer);
+      popupHideTimer = setTimeout(() => hideOrderPopup(false), 6000);
+    }
+
+    function hideOrderPopup(dismiss) {
+      if (dismiss) popupDismissed = true;
+      const el = document.getElementById('orderPopup');
+      if (el) el.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+      clearTimeout(popupHideTimer);
+    }
+
+    function startOrderPopup() {
+      if (popupStarted) return;
+      popupStarted = true;
+      setTimeout(() => {
+        showOrderPopup();
+        setInterval(showOrderPopup, 45000);
+      }, 8000);
+    }
+
+    // ================= GHI ĐƠN BÁN THẬT (SHOP NHẬP TAY) =================
+    function manualOrderSizes(p) {
+      if (!p) return [];
+      if (p.id === 'p1') return [
+        { label: '5ml Chiết', price: 190000 },
+        { label: '10ml Chiết', price: 380000 },
+        { label: '50ml Fullbox', price: 2950000 },
+        { label: '100ml Fullbox', price: 3850000 },
+      ];
+      return [{ label: 'Chai Full', price: p.price }];
+    }
+
+    function populateManualOrderForm() {
+      const sel = document.getElementById('manualOrderProduct');
+      if (!sel || !products || products.length === 0) return;
+      sel.innerHTML = products.filter(p => p.active !== false).map(p => `<option value="${p.id}">${p.name} — ${formatVND(p.price)}</option>`).join('');
+      updateManualOrderSizes();
+    }
+
+    function updateManualOrderSizes() {
+      const prodSel = document.getElementById('manualOrderProduct');
+      const sizeSel = document.getElementById('manualOrderSize');
+      if (!prodSel || !sizeSel) return;
+      const p = products.find(x => x.id === prodSel.value);
+      sizeSel.innerHTML = manualOrderSizes(p).map(s => `<option value="${s.label}" data-price="${s.price}">${s.label} — ${formatVND(s.price)}</option>`).join('');
+      updateManualOrderTotal();
+    }
+
+    function updateManualOrderTotal() {
+      const sizeSel = document.getElementById('manualOrderSize');
+      const qtyEl = document.getElementById('manualOrderQty');
+      const totalEl = document.getElementById('manualOrderTotal');
+      if (!sizeSel || !qtyEl || !totalEl) return;
+      const price = sizeSel.selectedOptions.length ? Number(sizeSel.selectedOptions[0].dataset.price || 0) : 0;
+      const qty = Math.max(1, Number(qtyEl.value || 1));
+      totalEl.textContent = formatVND(price * qty);
+    }
+
+    function handleAddManualOrder(e) {
+      e.preventDefault();
+      const p = products.find(x => x.id === document.getElementById('manualOrderProduct').value);
+      if (!p) return;
+      const sizeSel = document.getElementById('manualOrderSize');
+      const size = sizeSel.value;
+      const price = Number(sizeSel.selectedOptions[0].dataset.price || p.price);
+      const qty = Math.max(1, Number(document.getElementById('manualOrderQty').value || 1));
+      const orderCode = 'BC' + Math.floor(100000 + Math.random() * 900000);
+      orders.unshift({
+        id: orderCode,
+        date: new Date().toLocaleDateString('vi-VN'),
+        customer: 'Khách hàng',
+        phone: '—',
+        items: `${p.name} (${size}) x${qty}`,
+        total: price * qty,
+        status: 'Đã giao'
+      });
+      localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+      renderAdminOrdersTable();
+      updateAdminStats();
+      popupOrderIdx = 0;
+      showOrderPopup();
+      alert('Đã ghi đơn thật ' + orderCode + ' — ' + p.name + ' (' + size + ') x' + qty + '.');
     }
 
     // Save Shop Settings
