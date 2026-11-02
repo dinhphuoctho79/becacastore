@@ -805,6 +805,17 @@
 <button class="h-10 px-5 rounded-full bg-ocean text-white font-bold text-xs shadow-sm hover:bg-ocean-dark transition-all" type="submit">+ Thêm đơn thật</button>
 </div>
 </form>
+<div class="flex flex-wrap gap-2">
+<button class="h-10 px-4 rounded-full bg-ocean text-white font-bold text-xs shadow-sm hover:bg-ocean-dark transition-all flex items-center gap-1.5" onclick="exportOrdersCSV()" type="button">
+<i class="w-3.5 h-3.5" data-lucide="download"></i> Xuất báo cáo (Excel)
+</button>
+<button class="h-10 px-4 rounded-full bg-[#0068FF] text-white font-bold text-xs shadow-sm hover:bg-blue-700 transition-all flex items-center gap-1.5" onclick="sendReportViaZalo()" type="button">
+<i class="w-3.5 h-3.5" data-lucide="message-circle"></i> Gửi báo cáo qua Zalo
+</button>
+<button class="h-10 px-4 rounded-full bg-[#229ED9] text-white font-bold text-xs shadow-sm hover:bg-sky-600 transition-all flex items-center gap-1.5" onclick="sendReportViaTelegram()" type="button">
+<i class="w-3.5 h-3.5" data-lucide="send"></i> Gửi báo cáo qua Telegram
+</button>
+</div>
 <div class="border border-ocean-border rounded-2xl overflow-hidden overflow-x-auto">
 <table class="w-full text-left text-xs">
 <thead class="bg-ocean-surface text-brand-heading font-bold border-b border-ocean-border">
@@ -815,6 +826,7 @@
 <th class="p-3">Tổng tiền</th>
 <th class="p-3">Trạng thái</th>
 <th class="p-3 text-right">Zalo chat</th>
+<th class="p-3 text-right">Xóa</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-ocean-border" id="adminOrdersTableBody">
@@ -865,6 +877,16 @@
 <input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingBankHolder" placeholder="Nhập tên chủ tài khoản (không dấu)" type="text"/>
 </div>
 <p class="text-[11px] text-gray-500 leading-relaxed">Chưa nhập tài khoản — khách chưa quét được mã QR. Nhập đủ Ngân hàng + Số tài khoản + Tên chủ tài khoản thì mã QR mới hiện ở giỏ hàng của khách.</p>
+<h4 class="font-heading font-bold text-sm text-brand-heading pb-1 border-b border-ocean-border pt-2">Kết nối Telegram</h4>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Bot Token (lấy từ @BotFather):</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingTelegramToken" placeholder="VD: 123456789:AAEx..." type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-heading mb-1">Chat ID (ID Telegram của bạn / nhóm):</label>
+<input class="w-full px-3 py-2 rounded-xl border border-ocean-border text-xs focus:border-ocean" id="settingTelegramChatId" placeholder="VD: 123456789" type="text"/>
+</div>
+<p class="text-[11px] text-gray-500 leading-relaxed">Tạo bot: mở Telegram, nhắn @BotFather → /newbot → làm theo hướng dẫn để lấy token. Chat ID: nhắn @userinfobot để lấy ID của bạn. Khi đã kết nối, mỗi đơn mới sẽ tự gửi tin nhắn Telegram và nút "Gửi báo cáo qua Telegram" mới dùng được.</p>
 <button class="h-11 px-6 rounded-full bg-ocean hover:bg-ocean-dark text-white font-bold text-xs transition-all shadow" type="submit">
             Lưu cài đặt cửa hàng
           </button>
@@ -1239,7 +1261,7 @@ const VIETQR_BANKS = [
         try { shopSettings = JSON.parse(storedSettings); } catch(e) {}
       }
       // Cài đặt lưu từ trước chưa có 3 trường tài khoản QR -> bổ sung mặc định trống
-      shopSettings = Object.assign({ bankCode: '', bankAccount: '', bankHolder: '' }, shopSettings);
+      shopSettings = Object.assign({ bankCode: '', bankAccount: '', bankHolder: '', telegramToken: '', telegramChatId: '' }, shopSettings);
 
       // Auth
       isAdminLoggedIn = localStorage.getItem(STORAGE_KEY_ADMIN_AUTH) === 'true';
@@ -1276,6 +1298,8 @@ const VIETQR_BANKS = [
       document.getElementById('settingBankCode').value = shopSettings.bankCode || '';
       document.getElementById('settingBankAccount').value = shopSettings.bankAccount || '';
       document.getElementById('settingBankHolder').value = shopSettings.bankHolder || '';
+      document.getElementById('settingTelegramToken').value = shopSettings.telegramToken || '';
+      document.getElementById('settingTelegramChatId').value = shopSettings.telegramChatId || '';
     }
 
     // Render Product Cards on Homepage
@@ -1824,6 +1848,7 @@ const VIETQR_BANKS = [
       renderQrPaySection(cart.reduce((s, i) => s + i.price * i.qty, 0));
       popupOrderIdx = 0;
       showOrderPopup();
+      notifyTelegramNewOrder(newOrder);
 
       // Open Zalo
       const zaloUrl = `https://zalo.me/0838989567?text=${encodeURIComponent(text)}`;
@@ -1854,6 +1879,7 @@ const VIETQR_BANKS = [
       renderQrPaySection(total);
       popupOrderIdx = 0;
       showOrderPopup();
+      notifyTelegramNewOrder(orders[0]);
       alert('Đơn hàng ' + orderCode + ' của bạn đã được ghi nhận! Bé Cá Store sẽ gọi xác nhận và giao hỏa tốc 2h tại Cần Thơ.');
       cart = [];
       localStorage.removeItem(STORAGE_KEY_CART);
@@ -2058,7 +2084,7 @@ const VIETQR_BANKS = [
       if (!orders || orders.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="6" class="p-8 text-center text-gray-500 bg-white">
+            <td colspan="7" class="p-8 text-center text-gray-500 bg-white">
               <div class="flex flex-col items-center justify-center space-y-2">
                 <i data-lucide="inbox" class="w-8 h-8 text-ocean/40"></i>
                 <p class="font-medium text-xs sm:text-sm text-brand-heading">Chưa có đơn hàng mới từ Zalo.</p>
@@ -2086,14 +2112,21 @@ const VIETQR_BANKS = [
           <td class="p-3 max-w-xs truncate">${ord.items}</td>
           <td class="p-3 font-bold text-ocean">${formatVND(ord.total)}</td>
           <td class="p-3">
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${ord.status === 'Đã giao' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">
-              ${ord.status}
-            </span>
+            <select onchange="changeOrderStatus('${ord.id}', this.value)" class="px-2 py-1 rounded-full text-[10px] font-bold border border-ocean-border bg-white text-brand-heading focus:border-ocean">
+              <option ${ord.status === 'Chờ xác nhận' ? 'selected' : ''}>Chờ xác nhận</option>
+              <option ${ord.status === 'Đã giao' ? 'selected' : ''}>Đã giao</option>
+              <option ${ord.status === 'Đã hủy' ? 'selected' : ''}>Đã hủy</option>
+            </select>
           </td>
           <td class="p-3 text-right">
             <a href="https://zalo.me/${shopSettings.hotline}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold text-[10px] transition-colors">
               <i data-lucide="message-circle" class="w-3 h-3"></i> Chat Zalo
             </a>
+          </td>
+          <td class="p-3 text-right">
+            <button onclick="deleteOrder('${ord.id}')" class="p-1.5 rounded-full text-red-500 hover:bg-red-50 transition-colors" title="Xóa đơn này">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
           </td>
         `;
         tbody.appendChild(tr);
@@ -2204,7 +2237,110 @@ const VIETQR_BANKS = [
       updateAdminStats();
       popupOrderIdx = 0;
       showOrderPopup();
+      notifyTelegramNewOrder(orders[0]);
       alert('Đã ghi đơn thật ' + orderCode + ' — ' + p.name + ' (' + size + ') x' + qty + '.');
+    }
+
+    // ================= SỬA / XÓA ĐƠN + XUẤT BÁO CÁO =================
+    function saveOrders() {
+      localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+      renderAdminOrdersTable();
+      updateAdminStats();
+    }
+
+    function changeOrderStatus(id, status) {
+      const ord = orders.find(o => o.id === id);
+      if (!ord) return;
+      ord.status = status;
+      saveOrders();
+    }
+
+    function deleteOrder(id) {
+      const ord = orders.find(o => o.id === id);
+      if (!ord) return;
+      if (!confirm('Xóa đơn ' + id + ' (' + ord.items + ') khỏi danh sách?')) return;
+      orders = orders.filter(o => o.id !== id);
+      saveOrders();
+    }
+
+    function buildReportSummary() {
+      const total = orders.reduce((s, o) => s + (o.total || 0), 0);
+      const waiting = orders.filter(o => o.status === 'Chờ xác nhận').length;
+      const done = orders.filter(o => o.status === 'Đã giao').length;
+      const cancelled = orders.filter(o => o.status === 'Đã hủy').length;
+      let text = `BÁO CÁO ĐƠN HÀNG — Bé Cá Store - Thiện Hoàng\nNgày ${new Date().toLocaleDateString('vi-VN')}\nTổng: ${orders.length} đơn • ${formatVND(total)}\nChờ xác nhận: ${waiting} • Đã giao: ${done} • Đã hủy: ${cancelled}`;
+      orders.slice(0, 20).forEach((o, i) => {
+        text += `\n${i + 1}. ${o.id} — ${o.items} — ${formatVND(o.total)} (${o.status})`;
+      });
+      if (orders.length > 20) text += `\n... và ${orders.length - 20} đơn nữa (xem file Excel xuất đầy đủ).`;
+      return text;
+    }
+
+    function exportOrdersCSV() {
+      if (!orders || orders.length === 0) {
+        alert('Chưa có đơn hàng nào để xuất báo cáo.');
+        return;
+      }
+      const q = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+      const lines = [['Mã đơn', 'Ngày', 'Khách hàng', 'SĐT', 'Sản phẩm', 'Tổng tiền (đ)', 'Trạng thái'].map(q).join(',')];
+      orders.forEach(o => lines.push([o.id, o.date, o.customer, o.phone, o.items, o.total, o.status].map(q).join(',')));
+      const total = orders.reduce((s, o) => s + (o.total || 0), 0);
+      lines.push(['TỔNG CỘNG', '', '', '', '', total, ''].map(q).join(','));
+      const blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'bao-cao-don-hang-beca-store-' + new Date().toISOString().slice(0, 10) + '.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+    }
+
+    function sendReportViaZalo() {
+      if (!orders || orders.length === 0) {
+        alert('Chưa có đơn hàng nào để gửi báo cáo.');
+        return;
+      }
+      const url = `https://zalo.me/${shopSettings.hotline}?text=${encodeURIComponent(buildReportSummary())}`;
+      window.open(url, '_blank');
+    }
+
+    async function sendReportViaTelegram() {
+      if (!orders || orders.length === 0) {
+        alert('Chưa có đơn hàng nào để gửi báo cáo.');
+        return;
+      }
+      const token = (shopSettings.telegramToken || '').trim();
+      const chatId = (shopSettings.telegramChatId || '').trim();
+      if (!token || !chatId) {
+        alert('Chưa kết nối Telegram. Vào Cài đặt shop, nhập Bot Token và Chat ID rồi bấm Lưu cài đặt.');
+        return;
+      }
+      try {
+        const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: chatId, text: buildReportSummary() })
+        });
+        const data = await res.json();
+        if (data.ok) alert('Đã gửi báo cáo qua Telegram.');
+        else alert('Telegram báo lỗi: ' + (data.description || 'không rõ nguyên nhân. Kiểm tra lại Bot Token và Chat ID.'));
+      } catch (e) {
+        alert('Không gửi được qua Telegram. Kiểm tra mạng và Bot Token / Chat ID.');
+      }
+    }
+
+    // Tự gửi tin nhắn Telegram khi có đơn mới (chỉ khi shop đã kết nối Telegram)
+    function notifyTelegramNewOrder(ord) {
+      const token = (shopSettings.telegramToken || '').trim();
+      const chatId = (shopSettings.telegramChatId || '').trim();
+      if (!token || !chatId || !ord) return;
+      const text = `ĐƠN MỚI — Bé Cá Store\nMã ${ord.id} • ${formatVND(ord.total)}\n${ord.items}\nNgày ${ord.date} (${ord.status})`;
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text })
+      }).catch(() => {});
     }
 
     // Save Shop Settings
@@ -2219,6 +2355,8 @@ const VIETQR_BANKS = [
       shopSettings.bankCode = document.getElementById('settingBankCode').value;
       shopSettings.bankAccount = document.getElementById('settingBankAccount').value.replace(/\s+/g, '');
       shopSettings.bankHolder = document.getElementById('settingBankHolder').value.trim();
+      shopSettings.telegramToken = document.getElementById('settingTelegramToken').value.trim();
+      shopSettings.telegramChatId = document.getElementById('settingTelegramChatId').value.trim();
 
       localStorage.setItem(STORAGE_KEY_SETTINGS, JSON.stringify(shopSettings));
       updateShopSettingsUI();
