@@ -658,7 +658,7 @@
 </button>
 <button class="w-full h-12 rounded-full bg-sand hover:bg-sand-hover text-brand-heading font-bold text-sm flex items-center justify-center gap-2 shadow transition-all" onclick="checkoutDirectly()">
 <i class="w-4 h-4" data-lucide="check-circle"></i>
-<span>Mua ngay (Hoàn tất thanh toán)</span>
+<span>Mua ngay qua Zalo</span>
 </button>
 </div>
 </div>
@@ -1617,7 +1617,7 @@ const VIETQR_BANKS = [
 
     function buyNowFromDetail() {
       addToCartFromDetail();
-      toggleCart(true);
+      orderViaZalo();
     }
 
     function quickBuyCard(productId) {
@@ -1632,7 +1632,7 @@ const VIETQR_BANKS = [
         price: p.price,
         qty: 1
       });
-      toggleCart(true);
+      orderViaZalo();
     }
 
     function mobileQuickBuy() {
@@ -1898,35 +1898,9 @@ const VIETQR_BANKS = [
     }
 
     function checkoutDirectly() {
-      if (cart.length === 0) {
-        alert('Giỏ hàng trống!');
-        return;
-      }
-      // Ghi đơn vào danh sách đơn hàng TRƯỚC khi xóa giỏ, để admin thấy được đơn
-      const orderCode = pendingQrOrderCode || ('BC' + Math.floor(100000 + Math.random() * 900000));
-      pendingQrOrderCode = null;
-      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
-      orders.unshift({
-        id: orderCode,
-        date: new Date().toLocaleDateString('vi-VN'),
-        customer: 'Khách hàng Zalo',
-        phone: '0838989567',
-        items: cart.map(i => `${i.name} (${i.size}) x${i.qty}`).join(', '),
-        total: total,
-        status: 'Chờ xác nhận'
-      });
-      localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
-      renderAdminOrdersTable();
-      updateAdminStats();
-      renderQrPaySection(total);
-      popupOrderIdx = 0;
-      showOrderPopup();
-      notifyTelegramNewOrder(orders[0]);
-      alert('Đơn hàng ' + orderCode + ' của bạn đã được ghi nhận! Bé Cá Store sẽ gọi xác nhận và giao hỏa tốc 2h tại Cần Thơ.');
-      cart = [];
-      localStorage.removeItem(STORAGE_KEY_CART);
-      updateCartUI();
-      toggleCart(false);
+      // Đặt hàng theo liên kết Zalo của shop cho dễ: mở Zalo kèm nội dung đơn,
+      // đơn tự lưu vào Quản Trị, giỏ tự trống (xử lý trong orderViaZalo).
+      orderViaZalo();
     }
 
     // ================= ADMIN PANEL LOGIC =================
