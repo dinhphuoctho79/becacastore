@@ -1889,6 +1889,12 @@ const VIETQR_BANKS = [
       // Open Zalo
       const zaloUrl = `https://zalo.me/0838989567?text=${encodeURIComponent(text)}`;
       window.open(zaloUrl, '_blank');
+
+      // Đặt xong thì giỏ tự trống — tránh khách bấm đặt trùng đơn
+      cart = [];
+      localStorage.removeItem(STORAGE_KEY_CART);
+      updateCartUI();
+      toggleCart(false);
     }
 
     function checkoutDirectly() {
